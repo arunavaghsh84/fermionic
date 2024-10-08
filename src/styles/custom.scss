@@ -1,0 +1,44 @@
+.slick-slider {
+  .slick-prev,
+  .slick-next {
+    display: none !important;
+  }
+  .slick-dots {
+    bottom: 20px;
+    li {
+      button {
+        padding: 0;
+        &:before {
+          font-size: 16px;
+          color: #ffffff !important;
+        }
+      }
+      &.slick-active {
+        button {
+          color: #ffffff !important;
+        }
+      }
+    }
+  }
+  .slick-track {
+    &:before {
+      display: none !important;
+    }
+  }
+  .slick-track {
+    &:after {
+      display: none !important;
+    }
+  }
+  .slick-list {
+    .slick-track {
+      .slick-slide {
+        > div {
+          > div {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
