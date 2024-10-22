@@ -12,7 +12,6 @@ import Video from "@/components/Video";
 import { Metadata } from "next";
 import "@/styles/Animate/animate.min.css";
 
-
 export const metadata: Metadata = {
   title: "Fermionic",
   // description: "This is Home for Startup Nextjs Template",
@@ -29,7 +28,7 @@ export default function Home() {
       {/* <Brands /> */}
       {/* <AboutSectionOne /> */}
       {/* <AboutSectionTwo /> */}
-      <Testimonials />
+      {/* <Testimonials /> */}
       {/* <Pricing /> */}
       {/* <Blog /> */}
       <Contact />
