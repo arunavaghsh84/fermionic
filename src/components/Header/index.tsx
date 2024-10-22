@@ -40,21 +40,14 @@ const Header = () => {
 
   return (
     <>
-      <header
-        className={`header left-0 top-0 z-40 flex w-full items-center ${
-          sticky
-            ? "dark:bg-gray-dark dark:shadow-sticky-dark fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition"
-            : "absolute bg-white !bg-opacity-80 backdrop-blur-sm"
-        }`}
-      >
+      <header className="fixed left-0 right-0 z-[9999] bg-white shadow-sm dark:bg-gray-dark dark:shadow-sticky-dark">
         <div className="container">
           <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-40 max-w-full px-4 xl:mr-12">
+            <div className="w-36 max-w-full px-4 xl:mr-12">
               <Link
                 href="/"
-                className={`header-logo block w-full ${
-                  sticky ? "py-5 lg:py-2" : "py-4"
-                } `}
+                className={`header-logo lg:py-2" } block w-full
+                py-2 `}
               >
                 <Image
                   src="/images/logo/logo-2.png"

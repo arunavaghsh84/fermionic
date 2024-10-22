@@ -2,17 +2,20 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const d = new Date();
+let year = d.getFullYear();
+
 const Footer = () => {
   return (
     <>
-      <footer className="relative z-10 bg-white pt-16 dark:bg-gray-dark md:pt-20 lg:pt-24">
+      <footer className="relative z-10 bg-black pt-6 dark:bg-gray-dark lg:pt-8">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
-              <div className="mb-12 max-w-[360px] lg:mb-16">
+              <div className="mb-8 max-w-[360px] lg:mb-10">
                 <Link href="/" className="mb-8 inline-block">
                   <Image
-                    src="/images/logo/logo-2.png"
+                    src="/images/logo/logo-white.png"
                     alt="logo"
                     className="w-full dark:hidden"
                     width={100}
@@ -26,7 +29,7 @@ const Footer = () => {
                     height={30}
                   />
                 </Link>
-                <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
+                <p className="mb-9 text-base leading-relaxed text-white dark:text-body-color-dark">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Integer lobortis.
                 </p>
@@ -36,7 +39,7 @@ const Footer = () => {
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="mr-6 text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                   >
                     <svg
                       width="18"
@@ -56,7 +59,7 @@ const Footer = () => {
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="mr-6 text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                   >
                     <svg
                       width="18"
@@ -78,7 +81,7 @@ const Footer = () => {
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="mr-6 text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                   >
                     <svg
                       width="18"
@@ -94,7 +97,7 @@ const Footer = () => {
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                   >
                     <svg
                       width="17"
@@ -110,15 +113,23 @@ const Footer = () => {
             </div>
 
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
-              <div className="mb-12 lg:mb-16">
-                <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
+              <div className="mb-6 lg:mb-8">
+                <h2 className="mb-4 text-xl font-bold text-white dark:text-white">
                   Useful Links
                 </h2>
                 <ul>
                   <li>
                     <Link
+                      href="/about"
+                      className="mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    >
+                      About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       href="/blog"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Blog
                     </Link>
@@ -126,17 +137,9 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Pricing
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/about"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
-                    >
-                      About
+                      Careers
                     </Link>
                   </li>
                 </ul>
@@ -144,23 +147,15 @@ const Footer = () => {
             </div>
 
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
-              <div className="mb-12 lg:mb-16">
-                <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
+              <div className="mb-6 lg:mb-8">
+                <h2 className="mb-4 text-xl font-bold text-white dark:text-white">
                   Terms
                 </h2>
                 <ul>
                   <li>
                     <Link
                       href="/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
-                    >
-                      TOS
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="dark:text-white-dark mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:hover:text-primary"
                     >
                       Privacy Policy
                     </Link>
@@ -168,9 +163,9 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Refund Policy
+                      Terms & Conditions
                     </Link>
                   </li>
                 </ul>
@@ -178,15 +173,15 @@ const Footer = () => {
             </div>
 
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
-              <div className="mb-12 lg:mb-16">
-                <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
+              <div className="mb-6 lg:mb-8">
+                <h2 className="mb-4 text-xl font-bold text-white dark:text-white">
                   Support & Help
                 </h2>
                 <ul>
                   <li>
                     <Link
                       href="/contact"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Open Support Ticket
                     </Link>
@@ -194,7 +189,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Terms of Use
                     </Link>
@@ -202,7 +197,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/about"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       About
                     </Link>
@@ -213,18 +208,19 @@ const Footer = () => {
           </div>
 
           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
-          <div className="py-8">
-            <p className="text-center text-sm text-body-color dark:text-white">
-              &copy; 2023 by{" "}
+          <div className="py-4">
+            <p className="text-center text-sm text-white dark:text-white">
+              &copy; {year} by{" "}
               <a
-                href="http://FermionIC© 2023 by© 2023 by.com"
+                href="https://www.fermionic.design/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"
               >
                 FermionIC
-              </a>{". "}
-              All Right Resrtvrd.
+              </a>
+              {". "}
+              All Right Resrved.
             </p>
           </div>
         </div>
@@ -418,7 +414,7 @@ const Footer = () => {
             </defs>
           </svg>
         </div>
-      </footer >
+      </footer>
     </>
   );
 };

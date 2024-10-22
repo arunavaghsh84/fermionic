@@ -2,7 +2,7 @@ import NewsLatterBox from "./NewsLatterBox";
 
 const Contact = () => {
   return (
-    <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
+    <section id="contact" className="overflow-hidden py-4 md:py-6 lg:py-8">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 lg:w-7/12 xl:w-8/12">
@@ -20,7 +20,7 @@ const Contact = () => {
               <form>
                 <div className="-mx-4 flex flex-wrap">
                   <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
+                    <div className="mb-4">
                       <label
                         htmlFor="name"
                         className="mb-3 block text-sm font-medium text-dark dark:text-white"
@@ -35,7 +35,7 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
+                    <div className="mb-4">
                       <label
                         htmlFor="email"
                         className="mb-3 block text-sm font-medium text-dark dark:text-white"
@@ -50,7 +50,7 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
+                    <div className="mb-4">
                       <label
                         htmlFor="name"
                         className="mb-3 block text-sm font-medium text-dark dark:text-white"
@@ -65,7 +65,7 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
+                    <div className="mb-4">
                       <label
                         htmlFor="email"
                         className="mb-3 block text-sm font-medium text-dark dark:text-white"
@@ -80,7 +80,7 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="w-full px-4">
-                    <div className="mb-8">
+                    <div className="mb-5">
                       <label
                         htmlFor="message"
                         className="mb-3 block text-sm font-medium text-dark dark:text-white"
