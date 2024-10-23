@@ -28,7 +28,7 @@ const BlogDetailsPage = () => {
                     occaecat cupidatat.
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded">
-                    <div className="relative aspect-[97/20] w-full sm:aspect-[97/24]">
+                    <div className="relative aspect-[97/20] w-full sm:aspect-[97/44]">
                       <Image
                         src="/images/products/Redriver_use.webp"
                         alt="image"

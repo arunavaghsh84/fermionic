@@ -9,17 +9,17 @@ const Breadcrumb = ({
 }) => {
   return (
     <>
-      <section className="relative z-10 overflow-hidden pt-28 lg:pt-[92px] shadow-sm">
+      <section className="relative z-10 overflow-hidden pt-28 lg:pt-[100px] shadow-sm bg-bg-color-dark">
         <div className="container">
-          <div className="-mx-4 flex flex-wrap items-start">
-            <div className="w-full px-4 md:w-8/12 lg:w-7/12">
-              <div className="mb-8 max-w-[570px] md:mb-0 lg:mb-8">
-                <h1 className="mb-5 text-2xl font-bold text-black dark:text-white sm:text-3xl">
+          <div className="-mx-4 flex flex-wrap items-center justify-center">
+            <div className="w-full px-4 text-center">
+              <div className="mb-8 md:mb-0 lg:mb-4">
+                <h1 className="mb-5 text-2xl font-bold text-white dark:text-white sm:text-3xl">
                   {pageName}
                 </h1>
               </div>
             </div>
-            <div className="w-full px-4 md:w-4/12 lg:w-5/12">
+            {/* <div className="w-full px-4 md:w-4/12 lg:w-5/12">
               <div className="text-end">
                 <ul className="flex items-center md:justify-end">
                   <li className="flex items-center">
@@ -36,10 +36,10 @@ const Breadcrumb = ({
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
-          <div className="flex flex-wrap items-start w-3/4">
-            <p className="text-base font-medium leading-relaxed text-body-color pb-4">
+          <div className="text-center mb-5">
+            <p className="text-base font-medium leading-relaxed text-white pb-4">
               {description}
             </p>
           </div>
