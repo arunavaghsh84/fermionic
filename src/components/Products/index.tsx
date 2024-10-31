@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
-import SingleFeature from "./SingleProduct";
+import SingleProduct from "./SingleProduct";
 import productsData from "./productsData";
 import ViewMore from "./viewMore";
 
@@ -27,8 +27,8 @@ const Products = () => {
           )}
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {productsData.map((feature) => (
-              <SingleFeature key={feature.id} feature={feature} />
+            {productsData.map((product, index) => (
+              <SingleProduct key={product.id} product={product} delay={index * 500}/>
             ))}
           </div>
           <ViewMore />

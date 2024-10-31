@@ -3,6 +3,7 @@ import TagButton from "@/components/Blog/TagButton";
 import Image from "next/image";
 
 import { Metadata } from "next";
+import NewsLatterBox from "@/components/Contact/NewsLatterBox";
 
 export const metadata: Metadata = {
   title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
@@ -28,7 +29,7 @@ const BlogDetailsPage = () => {
                     occaecat cupidatat.
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded">
-                    <div className="relative aspect-[97/20] w-full sm:aspect-[97/44]">
+                    <div className="relative aspect-[97/20] w-full sm:aspect-[97/24]">
                       <Image
                         src="/images/products/Redriver_use.webp"
                         alt="image"
@@ -87,6 +88,9 @@ const BlogDetailsPage = () => {
                   </p>
                 </div>
               </div>
+            </div>
+            <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
+              <NewsLatterBox />
             </div>
           </div>
         </div>
