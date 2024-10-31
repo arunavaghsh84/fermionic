@@ -1,6 +1,6 @@
-import { Feature } from "@/types/feature";
+import { Product } from "@/types/product";
 
-const productsData: Feature[] = [
+const productsData: Product[] = [
   {
     id: 1,
     icon: (

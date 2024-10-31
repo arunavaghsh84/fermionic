@@ -3,54 +3,50 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const NewsLatterBox = () => {
+const AddressBox = () => {
   const { theme } = useTheme();
 
-   // Sticky Sidebar
-   const [sticky, setSticky] = useState(false);
-   const handleStickySidebar = () => {
-     if (window.scrollY >= 80) {
-       setSticky(true);
-     } else {
-       setSticky(false);
-     }
-   };
-   useEffect(() => {
-     window.addEventListener("scroll", handleStickySidebar);
-   });
+  // Sticky Sidebar
+  // const [sticky, setSticky] = useState(false);
+  // const handleStickySidebar = () => {
+  //   if (window.scrollY >= 80) {
+  //     setSticky(true);
+  //   } else {
+  //     setSticky(false);
+  //   }
+  // };
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleStickySidebar);
+  // });
 
   return (
-    <div className={`relative z-10 rounded-sm bg-white p-8 shadow-three dark:bg-gray-dark sm:p-11 lg:p-8 xl:p-11 transition ${sticky ? "sticky top-20" : ""}`}>
+    // <div className={`relative z-10 rounded-sm bg-white p-8 shadow-three dark:bg-gray-dark sm:p-11 lg:p-8 xl:p-11 transition ${sticky ? "sticky top-20" : ""}`}></div>
+    <div className="relative z-10 rounded-sm bg-white p-8 shadow-three dark:bg-gray-dark sm:p-11 lg:p-8 xl:p-11">
+      <iframe
+        id="map_custom"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d235745.68469757136!2d88.3032064!3d22.5968128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1729759394854!5m2!1sen!2sin"
+        width="400"
+        height="300"
+        loading="lazy"
+      ></iframe>
+
       <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
-        Get The Documents
+        Main Office Address
       </h3>
       <p className="mb-6 border-b border-body-color border-opacity-25 pb-6 text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
-        We will send you the documents over email.
+        FermionIC Design Private Limited GVR Vision, 268, 3rd Floor, AECS Layout
+        - A Block, Marathahalli, Bengaluru, Karnataka 560037,India
       </p>
-      <div>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter your full name"
-          className="border-stroke mb-4 w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter your email"
-          className="border-stroke mb-4 w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-        />
-        <input
-          type="submit"
-          value="Contact Us"
-          className="mb-5 flex w-full cursor-pointer items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
-        />
-        <p className="text-center text-base leading-relaxed text-body-color dark:text-body-color-dark">
-          No spam guaranteed, So please don’t send any spam mail.
-        </p>
-      </div>
 
-      <div>
+      <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
+        Sales Office Address
+      </h3>
+      <p className="text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
+        FermionIC Design Private Limited Inspire Workplace, 134-135, Service Rd,
+        LRDE Layout, Doddanekkundi, Bangalore, Karnataka 560037,India
+      </p>
+
+      {/* <div>
         <span className="absolute left-2 top-7">
           <svg
             width="57"
@@ -265,9 +261,9 @@ const NewsLatterBox = () => {
             </defs>
           </svg>
         </span>
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default NewsLatterBox;
+export default AddressBox;
