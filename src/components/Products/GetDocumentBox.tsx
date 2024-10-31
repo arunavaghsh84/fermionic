@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const NewsLatterBox = () => {
+const GetDocumentBox = () => {
   const { theme } = useTheme();
 
    // Sticky Sidebar
@@ -270,4 +270,4 @@ const NewsLatterBox = () => {
   );
 };
 
-export default NewsLatterBox;
+export default GetDocumentBox;
