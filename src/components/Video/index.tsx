@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import "animate.css/animate.compat.css";
-import ScrollAnimation from "react-animate-on-scroll";
 import ModalVideo from "react-modal-video";
 
 const Video = () => {
@@ -20,7 +19,6 @@ const Video = () => {
           mb="60px"
         />
 
-        {/* <ScrollAnimation animateIn="animate__zoomIn" delay={500}> */}
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div className="mx-auto max-w-[770px] overflow-hidden rounded-md shadow-2xl">
@@ -46,7 +44,6 @@ const Video = () => {
               </div>
             </div>
           </div>
-        {/* </ScrollAnimation> */}
       </div>
 
       <ModalVideo
