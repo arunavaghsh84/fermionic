@@ -54,9 +54,9 @@ const Career = () => {
             Transform your Future, We are hiring
           </h2>
           <p className="my-6 text-base font-medium text-body-color">
-            At Fermionic, we’re continuously looking for smart and passionate
+            At Fermionic, we&apos;re continuously looking for smart and passionate
             engineers ready to drive and contribute on our product roadmap. We
-            seek people who are intelligent than us. That's how we create a
+            seek people who are intelligent than us. That&apos;s how we create a
             company of high-performance innovators for a meaningful impact on
             the semiconductor IC and product design.
           </p>
@@ -93,8 +93,8 @@ const Career = () => {
                   experience in chip bring-up and silicon debug
                 </li>
                 <li className="mb-2">
-                  Bachelor's degree in Electronics/Electrical/Instrumentation
-                  Engineering or equivalent practical experience. Master’s
+                  Bachelor&apos;s degree in Electronics/Electrical/Instrumentation
+                  Engineering or equivalent practical experience. Master&apos;s
                   Degree preferred
                 </li>
               </ul>
@@ -136,7 +136,7 @@ const Career = () => {
               </p>
               <p className="mb-4">
                 <span className="font-bold text-primary">Education:</span> A
-                bachelor's degree in fields like Graphic Design, Interaction
+                bachelor&apos;s degree in fields like Graphic Design, Interaction
                 Design or related areas.
               </p>
               <p className="mb-4">
@@ -186,7 +186,7 @@ const Career = () => {
               </p>
               <p className="mb-4">
                 <span className="font-bold text-primary">Education:</span> A
-                bachelor's degree in fields like Graphic Design, Interaction
+                bachelor&apos;s degree in fields like Graphic Design, Interaction
                 Design or related areas.
               </p>
               <p className="mb-4">

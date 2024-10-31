@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import "animate.css/animate.compat.css";
-import ScrollAnimation from "react-animate-on-scroll";
 
 const ViewMore = () => {
   const [currentPath, setCurrentPath] = useState<string>("");

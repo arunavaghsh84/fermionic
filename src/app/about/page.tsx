@@ -35,7 +35,7 @@ const AboutPage = () => {
           <p className="text-base sm:text-lg font-medium leading-relaxed text-body-color">
             Our multiprotocol SERDES IP supports up-to 32GBps NRZ data-rate and
             meets electrical specifications of PCIe5/USB4/Ethernet/JESD
-            standard. FermionIC’s innovative SERDES architecture guarantees
+            standard. FermionIC&apos;s innovative SERDES architecture guarantees
             best-in-class latency across various nodes, multiple foundries and
             protocols.
           </p>
