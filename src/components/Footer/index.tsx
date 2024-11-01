@@ -136,7 +136,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/career"
                       className="mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Careers

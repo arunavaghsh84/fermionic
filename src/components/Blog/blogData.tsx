@@ -9,11 +9,8 @@ const blogData: Blog[] = [
     image: "/images/blog/blog-01.jpg",
     author: {
       name: "Samuyl Joshi",
-      image: "/images/blog/author-01.png",
-      designation: "Graphic Designer",
     },
-    tags: ["creative"],
-    publishDate: "2025",
+    publishDate: "12 Jan 2024",
   },
   {
     id: 2,
@@ -23,11 +20,8 @@ const blogData: Blog[] = [
     image: "/images/blog/blog-02.jpg",
     author: {
       name: "Musharof Chy",
-      image: "/images/blog/author-02.png",
-      designation: "Content Writer",
     },
-    tags: ["computer"],
-    publishDate: "2025",
+    publishDate: "12 Jan 2024",
   },
   {
     id: 3,
@@ -37,11 +31,8 @@ const blogData: Blog[] = [
     image: "/images/blog/blog-03.jpg",
     author: {
       name: "Lethium Deo",
-      image: "/images/blog/author-03.png",
-      designation: "Graphic Designer",
     },
-    tags: ["design"],
-    publishDate: "2025",
+    publishDate: "12 Jan 2024",
   },
 ];
 export default blogData;
