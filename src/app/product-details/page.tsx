@@ -1,9 +1,6 @@
-import SharePost from "@/components/Blog/SharePost";
-import TagButton from "@/components/Blog/TagButton";
 import Image from "next/image";
-
 import { Metadata } from "next";
-import NewsLatterBox from "@/components/Contact/NewsLatterBox";
+import GetDocumentBox from "@/components/Products/GetDocumentBox";
 
 export const metadata: Metadata = {
   title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
@@ -90,7 +87,7 @@ const BlogDetailsPage = () => {
               </div>
             </div>
             <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
-              <NewsLatterBox />
+              <GetDocumentBox />
             </div>
           </div>
         </div>
