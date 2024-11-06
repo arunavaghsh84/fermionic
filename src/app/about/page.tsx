@@ -1,17 +1,17 @@
 import AboutSection from "@/components/About/AboutSection";
 import Breadcrumb from "@/components/Common/Breadcrumb";
-
+import RootLayout from "@/app/defaultLayout/layout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Page",
+  title: "About Us",
   // description: "This is About Page for Startup Nextjs Template",
   // other metadata
 };
 
 const AboutPage = () => {
   return (
-    <>
+    <RootLayout>
       {/* <div className="pt-28 lg:pt-[120px]"></div> */}
       <Breadcrumb
         pageName="About Us"
@@ -46,7 +46,7 @@ const AboutPage = () => {
         </div>
       </section>
       <AboutSection />
-    </>
+    </RootLayout>
   );
 };
 

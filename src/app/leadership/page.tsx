@@ -3,18 +3,18 @@ import LeadershipSectionFour from "@/components/Leadership/LeadershipSectionFour
 import LeadershipSectionOne from "@/components/Leadership/LeadershipSectionOne";
 import LeadershipSectionThree from "@/components/Leadership/LeadershipSectionThree";
 import LeadershipSectionTwo from "@/components/Leadership/LeadershipSectionTwo";
-
+import RootLayout from "@/app/defaultLayout/layout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Page | Free Next.js Template for Startup and SaaS",
-  description: "This is About Page for Startup Nextjs Template",
+  title: "Leadership",
+  // description: "This is About Page for Startup Nextjs Template",
   // other metadata
 };
 
 const LeadershipPage = () => {
   return (
-    <>
+    <RootLayout>
       {/* <div className="pt-28 lg:pt-[120px]"></div> */}
       <Breadcrumb
         pageName="Leadership"
@@ -42,7 +42,7 @@ const LeadershipPage = () => {
       <LeadershipSectionTwo />
       <LeadershipSectionThree />
       <LeadershipSectionFour />
-    </>
+    </RootLayout>
   );
 };
 
