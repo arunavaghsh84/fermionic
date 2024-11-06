@@ -28,7 +28,7 @@ export async function POST(request: Request) {
 export async function GET() {
   await connectMongo();
 
-  const blogs = await Blog.find({});
+  const blogs = await Blog.find({}).populate("createdBy");
 
   return NextResponse.json(blogs, { status: 200 });
 }

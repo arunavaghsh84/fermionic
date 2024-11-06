@@ -7,10 +7,10 @@ const blogData: Blog[] = [
     paragraph:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
     image: "/images/blog/blog-01.jpg",
-    author: {
+    createdBy: {
       name: "Samuyl Joshi",
     },
-    publishDate: "12 Jan 2024",
+    createdAt: "12 Jan 2024",
   },
   {
     id: 2,
@@ -18,10 +18,10 @@ const blogData: Blog[] = [
     paragraph:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
     image: "/images/blog/blog-02.jpg",
-    author: {
+    createdBy: {
       name: "Musharof Chy",
     },
-    publishDate: "12 Jan 2024",
+    createdAt: "12 Jan 2024",
   },
   {
     id: 3,
@@ -29,10 +29,10 @@ const blogData: Blog[] = [
     paragraph:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
     image: "/images/blog/blog-03.jpg",
-    author: {
+    createdBy: {
       name: "Lethium Deo",
     },
-    publishDate: "12 Jan 2024",
+    createdAt: "12 Jan 2024",
   },
 ];
 export default blogData;

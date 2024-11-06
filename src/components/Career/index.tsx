@@ -1,5 +1,6 @@
 "use client";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
+import Image from "next/image";
 
 const AccordionItem = ({ header, ...rest }) => (
   <Item
@@ -7,7 +8,7 @@ const AccordionItem = ({ header, ...rest }) => (
     header={({ state: { isEnter } }) => (
       <>
         {header}
-        <img
+        <Image
           className={`ml-auto transition-transform duration-200 ease-out ${
             isEnter && "rotate-180"
           }`}
@@ -54,11 +55,11 @@ const Career = () => {
             Transform your Future, We are hiring
           </h2>
           <p className="my-6 text-base font-medium text-body-color">
-            At Fermionic, we&apos;re continuously looking for smart and passionate
-            engineers ready to drive and contribute on our product roadmap. We
-            seek people who are intelligent than us. That&apos;s how we create a
-            company of high-performance innovators for a meaningful impact on
-            the semiconductor IC and product design.
+            At Fermionic, we&apos;re continuously looking for smart and
+            passionate engineers ready to drive and contribute on our product
+            roadmap. We seek people who are intelligent than us. That&apos;s how
+            we create a company of high-performance innovators for a meaningful
+            impact on the semiconductor IC and product design.
           </p>
           <h4 className="mb-6 text-xl font-bold text-black dark:text-white">
             We have multiple openings for Analog designers, Layout Engineers,
@@ -93,9 +94,10 @@ const Career = () => {
                   experience in chip bring-up and silicon debug
                 </li>
                 <li className="mb-2">
-                  Bachelor&apos;s degree in Electronics/Electrical/Instrumentation
-                  Engineering or equivalent practical experience. Master&apos;s
-                  Degree preferred
+                  Bachelor&apos;s degree in
+                  Electronics/Electrical/Instrumentation Engineering or
+                  equivalent practical experience. Master&apos;s Degree
+                  preferred
                 </li>
               </ul>
               <p className="font-bold">
@@ -136,8 +138,8 @@ const Career = () => {
               </p>
               <p className="mb-4">
                 <span className="font-bold text-primary">Education:</span> A
-                bachelor&apos;s degree in fields like Graphic Design, Interaction
-                Design or related areas.
+                bachelor&apos;s degree in fields like Graphic Design,
+                Interaction Design or related areas.
               </p>
               <p className="mb-4">
                 <span className="font-bold text-primary">Key Skills:</span>{" "}
@@ -186,8 +188,8 @@ const Career = () => {
               </p>
               <p className="mb-4">
                 <span className="font-bold text-primary">Education:</span> A
-                bachelor&apos;s degree in fields like Graphic Design, Interaction
-                Design or related areas.
+                bachelor&apos;s degree in fields like Graphic Design,
+                Interaction Design or related areas.
               </p>
               <p className="mb-4">
                 <span className="font-bold text-primary">Key Skills:</span>{" "}
