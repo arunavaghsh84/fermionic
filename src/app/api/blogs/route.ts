@@ -26,9 +26,13 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
-  await connectMongo();
+  try {
+    await connectMongo();
 
-  const blogs = await Blog.find({}).populate("createdBy");
+    const blogs = await Blog.find({}).populate("createdBy");
 
-  return NextResponse.json(blogs, { status: 200 });
+    return NextResponse.json(blogs, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error }, { status: 500 });
+  }
 }
