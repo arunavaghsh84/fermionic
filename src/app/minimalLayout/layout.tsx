@@ -1,8 +1,7 @@
-// MinimalLayout.tsx
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { Providers } from "@/app/providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export default function MinimalLayout({
   children,
@@ -12,7 +11,7 @@ export default function MinimalLayout({
   return (
     <html suppressHydrationWarning lang="en">
       <head />
-      <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
+      <body className={`bg-[#FCFCFC] dark:bg-black ${montserrat.className}`}>
         <Providers>
           {children} {/* Only render the children without Header, Footer, or ScrollToTop */}
         </Providers>

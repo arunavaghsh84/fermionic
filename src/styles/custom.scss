@@ -34,7 +34,7 @@
     }
   }
   .slick-list {
-    height: 550px;
+    height: 450px;
     background: #000;
     .slick-track {
       height: 100%;
@@ -55,4 +55,43 @@
   width: 100%;
   height: auto;
   margin-bottom: 20px;
+}
+
+.react-tabs__tab-list {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+}
+.react-tabs__tab-list, .react-tabs__tab {
+  border: none !important;
+  padding: 0 !important;
+}
+.react-tabs__tab {
+  opacity: 0.7;
+  margin: 5px;
+  bottom: 0 !important;
+  .transition-transform-background {
+    outline: none !important; 
+    outline-offset: 0 !important;
+  }
+  &:focus {
+    &::after {
+      display: none !important;
+    }
+  }
+}
+.react-tabs__tab--selected {
+  background: transparent !important;
+  opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .slick-slider {
+    .slick-list {
+      height: 320px;
+    }
+  }
+  .section-title {
+    margin-bottom: 30px !important;
+  }
 }

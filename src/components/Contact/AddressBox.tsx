@@ -1,27 +1,12 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 const AddressBox = () => {
   const { theme } = useTheme();
 
-  // Sticky Sidebar
-  // const [sticky, setSticky] = useState(false);
-  // const handleStickySidebar = () => {
-  //   if (window.scrollY >= 80) {
-  //     setSticky(true);
-  //   } else {
-  //     setSticky(false);
-  //   }
-  // };
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleStickySidebar);
-  // });
-
   return (
-    // <div className={`relative z-10 rounded-sm bg-white p-8 shadow-three dark:bg-gray-dark sm:p-11 lg:p-8 xl:p-11 transition ${sticky ? "sticky top-20" : ""}`}></div>
-    <div className="relative z-10 rounded-sm bg-white p-8 shadow-three dark:bg-gray-dark sm:p-11 lg:p-8 xl:p-11">
+    <div className="relative z-10 rounded-sm bg-white p-8 shadow-three dark:bg-gray-dark sm:p-11 lg:p-8">
       <iframe
         id="map_custom"
         src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d235745.68469757136!2d88.3032064!3d22.5968128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1729759394854!5m2!1sen!2sin"
@@ -30,20 +15,20 @@ const AddressBox = () => {
         loading="lazy"
       ></iframe>
 
-      <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
+      <h3 className="mb-4 text-xl font-semibold leading-tight text-dark dark:text-white">
         Main Office Address
       </h3>
-      <p className="mb-6 border-b border-body-color border-opacity-25 pb-6 text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
+      <p className="mb-6 border-b border-body-color border-opacity-25 pb-6 text-sm leading-relaxed text-black dark:border-white dark:border-opacity-25">
         FermionIC Design Private Limited GVR Vision, 268, 3rd Floor, AECS Layout
-        - A Block, Marathahalli, Bengaluru, Karnataka 560037,India
+        <br/>- A Block, Marathahalli, Bengaluru, Karnataka 560037,India
       </p>
 
-      <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
+      <h3 className="mb-4 text-xl font-semibold leading-tight text-dark dark:text-white">
         Sales Office Address
       </h3>
-      <p className="text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
-        FermionIC Design Private Limited Inspire Workplace, 134-135, Service Rd,
-        LRDE Layout, Doddanekkundi, Bangalore, Karnataka 560037,India
+      <p className="text-sm leading-relaxed text-black dark:border-white dark:border-opacity-25">
+        FermionIC Design Private Limited Inspire Workplace, 134-135, Service Rd,<br/>
+        LRDE Layout, Doddanekkundi, <br/>Bangalore, Karnataka 560037,India
       </p>
 
       {/* <div>

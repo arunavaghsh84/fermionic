@@ -16,7 +16,7 @@ const Products = () => {
 
   return (
     <>
-      <section id="Products" className="py-4 md:py-6 lg:py-10">
+      <section id="Products" className="py-6 lg:py-10">
         <div className="container">
           {currentPath === "/" && (
             <SectionTitle
@@ -28,7 +28,7 @@ const Products = () => {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {productsData.map((product, index) => (
-              <SingleProduct key={product.id} product={product} delay={index * 500}/>
+              <SingleProduct key={product.id} product={product}/>
             ))}
           </div>
           <ViewMore />
