@@ -128,7 +128,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/blog"
+                      href="/blogs"
                       className="mb-4 inline-block text-sm text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Blog

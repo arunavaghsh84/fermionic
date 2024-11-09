@@ -1,16 +1,28 @@
+"use client";
+
 import SingleBlog from "@/components/Blog/SingleBlog";
-import blogData from "@/components/Blog/blogData";
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import RootLayout from "@/app/defaultLayout/layout";
-import { Metadata } from "next";
+import { useEffect, useState } from "react";
+import RootLayout from "../defaultLayout/layout";
 
-export const metadata: Metadata = {
-  title: "Blogs",
-  // description: "This is Blog Page for Startup Nextjs Template",
-  // other metadata
-};
+const Blogs = () => {
+  const [blogs, setBlogs] = useState([]);
 
-const Blog = () => {
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  const fetchBlogs = async () => {
+    const res = await fetch("/api/blogs");
+
+    if (res.ok) {
+      const data = await res.json();
+      setBlogs(data);
+    } else {
+      console.error("Error fetching messages");
+    }
+  };
+
   return (
     <RootLayout>
       <Breadcrumb
@@ -21,7 +33,7 @@ const Blog = () => {
       <section className="pb-[60px] pt-[60px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
-            {blogData.map((blog) => (
+            {blogs.map((blog) => (
               <div
                 key={blog.id}
                 className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
@@ -96,4 +108,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Blogs;

@@ -457,7 +457,6 @@ const BlogSidebarPage = () => {
                   <TagButton text="Business" />
                 </div>
               </div>
-
             </div>
           </div>
         </div>

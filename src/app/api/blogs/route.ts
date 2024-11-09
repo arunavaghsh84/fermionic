@@ -1,6 +1,7 @@
 import connectMongo from "../../lib/mongodb";
 import Blog from "../../models/Blog";
 import { NextResponse } from "next/server";
+import User from "@/app/models/User";
 
 export async function POST(request: Request) {
   await connectMongo();
@@ -26,9 +27,18 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
-  await connectMongo();
+  try {
+    await connectMongo();
 
-  const blogs = await Blog.find({});
+    // Due to a error I need to load User model unnessarily
+    // Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)
+    // After understanding the error I will remove this
+    User.find({}).limit(1);
 
-  return NextResponse.json(blogs, { status: 200 });
+    const blogs = await Blog.find({}).populate("createdBy");
+
+    return NextResponse.json(blogs, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 }
