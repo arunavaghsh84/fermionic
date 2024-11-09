@@ -1,9 +1,9 @@
 "use client";
 
 import SingleBlog from "@/components/Blog/SingleBlog";
-import blogData from "@/components/Blog/blogData";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { useEffect, useState } from "react";
+import RootLayout from "../defaultLayout/layout";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -24,7 +24,7 @@ const Blogs = () => {
   };
 
   return (
-    <>
+    <RootLayout>
       <Breadcrumb
         pageName="Blogs"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
@@ -104,7 +104,7 @@ const Blogs = () => {
           </div>
         </div>
       </section>
-    </>
+    </RootLayout>
   );
 };
 

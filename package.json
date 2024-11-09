@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.4.8",
     "@react-google-maps/api": "^2.20.3",
     "@szhsin/react-accordion": "^1.2.6",
     "animate.css": "^4.1.1",
@@ -27,6 +28,7 @@
     "react-dom": "^18.2.0",
     "react-modal-video": "^2.0.1",
     "react-slick": "^0.30.2",
+    "react-tabs": "^6.0.2",
     "sass": "^1.79.4",
     "slick-carousel": "^1.8.1",
     "wowjs": "^1.1.3"
