@@ -7,6 +7,22 @@ import ViewMore from "./viewMore";
 
 const Products = () => {
   const [currentPath, setCurrentPath] = useState<string>("");
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    const res = await fetch("/api/products");
+
+    if (res.ok) {
+      const data = await res.json();
+      setProducts(data);
+    } else {
+      console.error("Error fetching products");
+    }
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -27,8 +43,12 @@ const Products = () => {
           )}
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {productsData.map((product, index) => (
-              <SingleProduct key={product.id} product={product}/>
+            {products.map((product, index) => (
+              <SingleProduct
+                key={product.id}
+                product={product}
+                icon={productsData[index].icon}
+              />
             ))}
           </div>
           <ViewMore />

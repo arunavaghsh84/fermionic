@@ -6,9 +6,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { Tooltip } from "@nextui-org/react";
+import { Product } from "@/types/product";
 
-const GetDocumentBox = () => {
+const GetDocumentBox = ({ product }: { product: Product }) => {
   const { theme } = useTheme();
+  const { files } = product;
 
   // Sticky Sidebar
   const [sticky, setSticky] = useState(false);
@@ -27,46 +29,38 @@ const GetDocumentBox = () => {
     <div
       className={`relative z-10 rounded-sm bg-white p-8 shadow-three transition dark:bg-gray-dark sm:p-11 lg:p-8 xl:p-11 ${sticky ? "sticky top-20" : ""}`}
     >
-      <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
-        Download Data Sheet Briefs
-      </h3>
-      <ul className="mb-4 border-b border-body-color border-opacity-25 pb-6 text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
-        <li className="mb-3 flex items-center gap-3 hover:cursor-pointer hover:text-primary">
-          <Image src="/images/pdf.png" alt="icon" width={25} height={25} />
-          <Tooltip
-            showArrow={true}
-            content="Download PDF"
-            placement="top"
-            color="foreground"
-          >
-            <Link href="#">Lorem Ipsum</Link>
-          </Tooltip>
-        </li>
-        <li className="mb-3 hover:cursor-pointer hover:text-primary">
-          <div className="flex items-center gap-3">
-            <Image src="/images/pdf.png" alt="icon" width={25} height={25} />
-            <Tooltip
-              showArrow={true}
-              content="Download PDF"
-              placement="top"
-              color="foreground"
-            >
-              <Link href="#">Lorem Ipsum Dummy Text</Link>
-            </Tooltip>
-          </div>
-        </li>
-        <li className="mb-3 flex items-center gap-3 hover:cursor-pointer hover:text-primary">
-          <Image src="/images/pdf.png" alt="icon" width={25} height={25} />
-          <Tooltip
-            showArrow={true}
-            content="Download PDF"
-            placement="top"
-            color="foreground"
-          >
-            <Link href="#">Lorem Ipsum</Link>
-          </Tooltip>
-        </li>
-      </ul>
+      {files.length > 0 && (
+        <>
+          <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
+            Download Data Sheet Briefs
+          </h3>
+          <ul className="mb-4 border-b border-body-color border-opacity-25 pb-6 text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
+            {files.map((file) => (
+              <li
+                key={file._id}
+                className="mb-3 flex items-center gap-3 hover:cursor-pointer hover:text-primary"
+              >
+                <Image
+                  src="/images/pdf.png"
+                  alt="icon"
+                  width={25}
+                  height={25}
+                />
+                <Tooltip
+                  showArrow={true}
+                  content="Download PDF"
+                  placement="top"
+                  color="foreground"
+                >
+                  <Link href={file.url} download={file.url}>
+                    {file.name}
+                  </Link>
+                </Tooltip>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
       <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
         Get The Documents
       </h3>

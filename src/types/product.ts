@@ -1,6 +1,16 @@
+interface IFile {
+  _id: number;
+  name: string;
+  url: string;
+  type: string;
+}
+
 export type Product = {
-  id: number;
-  icon: JSX.Element;
-  title: string;
-  paragraph: string;
+  _id: number;
+  name: string;
+  shortDescription: string;
+  details: string;
+  files: IFile[];
+  isFeatured: boolean;
+  createdAt?: Date;
 };
