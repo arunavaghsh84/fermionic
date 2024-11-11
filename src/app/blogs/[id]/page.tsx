@@ -11,10 +11,10 @@ const BlogDetailsPage = () => {
   const [blog, setBlog] = useState<Blog | null>(null);
 
   useEffect(() => {
-    fetchProduct();
+    fetchBlog();
   }, [id]);
 
-  const fetchProduct = async () => {
+  const fetchBlog = async () => {
     const response = await fetch(`/api/blogs/${id}`);
 
     if (response.ok) {
