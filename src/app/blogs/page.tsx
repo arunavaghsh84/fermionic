@@ -19,7 +19,7 @@ const Blogs = () => {
       const data = await res.json();
       setBlogs(data);
     } else {
-      console.error("Error fetching messages");
+      console.error("Error fetching blogs");
     }
   };
 
