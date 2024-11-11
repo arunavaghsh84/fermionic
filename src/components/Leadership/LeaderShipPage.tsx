@@ -1,27 +1,11 @@
 "use client";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import RootLayout from "@/app/defaultLayout/layout";
-import { Metadata } from "next";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Avatar,
-  Button,
-} from "@nextui-org/react";
+import { Card, CardHeader, CardBody } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
-
-// import leader1 from "../../../public/images/leadership/gautam_da.png"
-
-export const metadata: Metadata = {
-  title: "Leadership",
-  // description: "This is About Page for Startup Nextjs Template",
-  // other metadata
-};
 
 const LeadershipPage = () => {
   return (
@@ -47,15 +31,17 @@ const LeadershipPage = () => {
           <TabList>
             <Tab>
               <Card className="max-w-[300px]">
-                <CardHeader className="block justify-between">
+                <CardHeader className="block">
                   <Image
                     src="/images/leadership/gautam_da.png"
                     alt="leadership image"
                     width={280}
                     height={50}
-                    className="mb-4 drop-shadow-three dark:hidden dark:drop-shadow-none"
+                    className="drop-shadow-three dark:hidden dark:drop-shadow-none"
                   />
-                  <div className="flex items-center justify-between gap-4">
+                </CardHeader>
+                <CardBody className="padding text-small text-black">
+                  <div className="mb-3 flex items-center justify-between gap-4">
                     <div className="flex flex-col items-start justify-center gap-1">
                       <h4 className="text-md font-semibold leading-none text-black">
                         Gautam Kumar Singh
@@ -71,8 +57,6 @@ const LeadershipPage = () => {
                       />
                     </Link>
                   </div>
-                </CardHeader>
-                <CardBody className="text-small px-3 pt-0 text-black">
                   <p>
                     Frontend developer and UI/UX enthusiast. Join me on this
                     coding adventure!
@@ -88,9 +72,11 @@ const LeadershipPage = () => {
                     alt="leadership image"
                     width={280}
                     height={50}
-                    className="mb-4 drop-shadow-three dark:hidden dark:drop-shadow-none"
+                    className="drop-shadow-three dark:hidden dark:drop-shadow-none"
                   />
-                  <div className="flex items-center justify-between gap-4">
+                </CardHeader>
+                <CardBody className="padding text-small text-black">
+                  <div className="mb-3 flex items-center justify-between gap-4">
                     <div className="flex flex-col items-start justify-center gap-1">
                       <h4 className="text-md font-semibold leading-none text-black">
                         Prasun Bhattacharyya
@@ -106,8 +92,6 @@ const LeadershipPage = () => {
                       />
                     </Link>
                   </div>
-                </CardHeader>
-                <CardBody className="text-small px-3 pt-0 text-black">
                   <p>
                     Frontend developer and UI/UX enthusiast. Join me on this
                     coding adventure!
@@ -123,9 +107,11 @@ const LeadershipPage = () => {
                     alt="leadership image"
                     width={280}
                     height={50}
-                    className="mb-4 drop-shadow-three dark:hidden dark:drop-shadow-none"
+                    className="drop-shadow-three dark:hidden dark:drop-shadow-none"
                   />
-                  <div className="flex items-center justify-between gap-4">
+                </CardHeader>
+                <CardBody className="padding text-small text-black">
+                  <div className="mb-3 flex items-center justify-between gap-4">
                     <div className="flex flex-col items-start justify-center gap-1">
                       <h4 className="text-md font-semibold leading-none text-black">
                         Abhra Bagchi
@@ -143,8 +129,6 @@ const LeadershipPage = () => {
                       />
                     </Link>
                   </div>
-                </CardHeader>
-                <CardBody className="text-small px-3 pt-0 text-black">
                   <p>
                     Frontend developer and UI/UX enthusiast. Join me on this
                     coding adventure!
@@ -160,9 +144,11 @@ const LeadershipPage = () => {
                     alt="leadership image"
                     width={280}
                     height={50}
-                    className="mb-4 drop-shadow-three dark:hidden dark:drop-shadow-none"
+                    className="drop-shadow-three dark:hidden dark:drop-shadow-none"
                   />
-                  <div className="flex items-center justify-between gap-4">
+                </CardHeader>
+                <CardBody className="padding text-small text-black">
+                  <div className="flex items-center justify-between gap-4 mb-3">
                     <div className="flex flex-col items-start justify-center gap-1">
                       <h4 className="text-md font-semibold leading-none text-black">
                         Shabaaz N Syed
@@ -180,8 +166,6 @@ const LeadershipPage = () => {
                       />
                     </Link>
                   </div>
-                </CardHeader>
-                <CardBody className="text-small px-3 pt-0 text-black">
                   <p>
                     Frontend developer and UI/UX enthusiast. Join me on this
                     coding adventure!
@@ -192,7 +176,7 @@ const LeadershipPage = () => {
           </TabList>
 
           <TabPanel>
-            <p className="rounded-2xl bg-white p-5 text-sm drop-shadow-three">
+            <p className="rounded-md bg-white p-5 text-sm drop-shadow-three">
               Gautam is an accomplished semiconductor professional with
               experience in IC and IP product-design and business creation. He
               has held senior engineering positions at top semiconductor product
@@ -208,7 +192,7 @@ const LeadershipPage = () => {
             </p>
           </TabPanel>
           <TabPanel>
-            <p className="rounded-2xl bg-white p-5 text-sm drop-shadow-three">
+            <p className="rounded-md bg-white p-5 text-sm drop-shadow-three">
               In his two decades of experience, Prasun led some of the
               cutting-edge designs coming out of top semiconductor products and
               IP companies. He was responsible for the successful design and
@@ -220,7 +204,7 @@ const LeadershipPage = () => {
             </p>
           </TabPanel>
           <TabPanel>
-            <p className="rounded-2xl bg-white p-5 text-sm drop-shadow-three">
+            <p className="rounded-md bg-white p-5 text-sm drop-shadow-three">
               Abhra brings with him a rich and diverse experience in Digital
               Design. He has previously worked with Google, Qualcomm & Intel
               after graduating from Indian Institute of Science (IISc) with an
@@ -230,7 +214,7 @@ const LeadershipPage = () => {
             </p>
           </TabPanel>
           <TabPanel>
-            <p className="rounded-2xl bg-white p-5 text-sm drop-shadow-three">
+            <p className="rounded-md bg-white p-5 text-sm drop-shadow-three">
               Shabaaz brings with him extensive experience in custom-layout,
               chip-integration of complex SoCs and ICs. He has previously worked
               with Maxlinear, Western-Digital after having a B.Tech Degree in
