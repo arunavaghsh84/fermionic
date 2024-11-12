@@ -34,7 +34,7 @@ const AboutSection = () => {
             </div>
 
             <div className="w-full px-4 lg:w-1/2">
-              <h3 className="my-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
+              <h3 className="my-4 text-xl font-semibold text-dark dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
                 Lorem Ipsum
               </h3>
               <p className="text-sm leading-relaxed text-black sm:leading-relaxed lg:pb-0">

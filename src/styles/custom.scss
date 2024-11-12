@@ -79,6 +79,15 @@
       display: none !important;
     }
   }
+  .subpixel-antialiased {
+    padding: 0;
+    &.padding {
+      padding: 15px
+    }
+  }
+  .bg-content1 {
+    border-radius: 4px;
+  }
 }
 .react-tabs__tab--selected {
   background: transparent !important;

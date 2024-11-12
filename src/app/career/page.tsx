@@ -13,7 +13,7 @@ const CareerPagex = () => {
   return (
     <RootLayout>
       <Breadcrumb
-        pageName="Contact Page"
+        pageName="Careers"
         description="Send your CV to careers@fermionic.design, mentioning the post applied for in the subject line."
       />
 

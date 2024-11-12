@@ -6,7 +6,7 @@ const AddressBox = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="relative z-10 rounded-sm bg-white p-8 shadow-three dark:bg-gray-dark sm:p-11 lg:p-8">
+    <div className="relative z-10 rounded-sm bg-white p-8 shadow-three dark:bg-gray-dark">
       <iframe
         id="map_custom"
         src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d235745.68469757136!2d88.3032064!3d22.5968128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1729759394854!5m2!1sen!2sin"

@@ -8,7 +8,7 @@ import "@/styles/Animate/animate.min.css";
 import RootLayout from "@/app/defaultLayout/layout";
 
 export const metadata: Metadata = {
-  title: "Fermionic | Home Page",
+  title: "Home",
   // description: "This is Home for Startup Nextjs Template",
   // other metadata
 };

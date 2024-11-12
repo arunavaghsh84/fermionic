@@ -27,14 +27,14 @@ const GetDocumentBox = ({ product }: { product: Product }) => {
 
   return (
     <div
-      className={`relative z-10 rounded-sm bg-white p-8 shadow-three transition dark:bg-gray-dark sm:p-11 lg:p-8 xl:p-11 ${sticky ? "sticky top-20" : ""}`}
+      className={`relative z-10 rounded-sm bg-white p-8 shadow-three transition dark:bg-gray-dark ${sticky ? "sticky top-20" : ""}`}
     >
       {files.length > 0 && (
         <>
-          <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
+          <h3 className="mb-4 text-xl font-semibold leading-tight text-dark dark:text-white">
             Download Data Sheet Briefs
           </h3>
-          <ul className="mb-4 border-b border-body-color border-opacity-25 pb-6 text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
+          <ul className="mb-3 border-b border-body-color border-opacity-25 pb-2 text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
             {files.map((file) => (
               <li
                 key={file._id}
@@ -43,8 +43,8 @@ const GetDocumentBox = ({ product }: { product: Product }) => {
                 <Image
                   src="/images/pdf.png"
                   alt="icon"
-                  width={25}
-                  height={25}
+                  width={20}
+                  height={20}
                 />
                 <Tooltip
                   showArrow={true}
@@ -52,7 +52,12 @@ const GetDocumentBox = ({ product }: { product: Product }) => {
                   placement="top"
                   color="foreground"
                 >
-                  <Link href={file.url} download={file.url}>
+                  <Link
+                    href={file.url}
+                    download={true}
+                    target="_blank"
+                    className="text-sm text-black hover:text-primary"
+                  >
                     {file.name}
                   </Link>
                 </Tooltip>
@@ -61,31 +66,31 @@ const GetDocumentBox = ({ product }: { product: Product }) => {
           </ul>
         </>
       )}
-      <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
+      <h3 className="mb-3 text-xl font-semibold leading-tight text-dark dark:text-white">
         Get The Documents
       </h3>
-      <p className="mb-6 border-b border-body-color border-opacity-25 pb-6 text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
-        We will send you the documents over email.
+      <p className="mb-4 border-b border-body-color border-opacity-25 pb-4 text-sm leading-relaxed text-black dark:border-white dark:border-opacity-25">
+        We will send you the documents by email.
       </p>
       <div>
         <input
           type="text"
           name="name"
           placeholder="Enter your full name"
-          className="border-stroke mb-4 w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+          className="border-stroke mb-4 w-full rounded-lg border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
         />
         <input
           type="email"
           name="email"
           placeholder="Enter your email"
-          className="border-stroke mb-4 w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+          className="border-stroke mb-4 w-full rounded-lg border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
         />
         <input
           type="submit"
           value="Contact Us"
-          className="mb-5 flex w-full cursor-pointer items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
+          className="mb-4 w-full rounded-lg bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
         />
-        <p className="text-center text-base leading-relaxed text-body-color dark:text-body-color-dark">
+        <p className="text-center text-sm leading-relaxed text-black dark:text-body-color-dark">
           No spam guaranteed, So please don&apos;t send any spam mail.
         </p>
       </div>
