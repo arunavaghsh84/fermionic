@@ -42,22 +42,25 @@ const BlogDetailsPage = () => {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Quis enim lobortis scelerisque fermentum. Neque
-                    sodales ut etiam sit amet. Ligula ullamcorper {" "}
+                    sodales ut etiam sit amet. Ligula ullamcorper{" "}
                     <strong className="text-primary dark:text-white">
                       malesuada
                     </strong>{" "}
-                     proin libero nunc consequat interdum varius. Quam
+                    proin libero nunc consequat interdum varius. Quam
                     pellentesque nec nam aliquam sem et tortor consequat.
                     Pellentesque adipiscing commodo elit at imperdiet.
                   </p>
                   <p className="mb-6 text-sm leading-relaxed text-black dark:text-white">
                     Semper auctor neque vitae tempus quam pellentesque nec.{" "}
-                    <Link href="#" className="text-primary underline dark:text-white">
+                    <Link
+                      href="#"
+                      className="text-primary underline dark:text-white"
+                    >
                       Amet dictum sit amet justo
                     </Link>{" "}
-                    donec enim diam. Varius sit amet mattis vulputate
-                    enim nulla aliquet porttitor. Odio pellentesque diam
-                    volutpat commodo sed.
+                    donec enim diam. Varius sit amet mattis vulputate enim nulla
+                    aliquet porttitor. Odio pellentesque diam volutpat commodo
+                    sed.
                   </p>
                   <h3 className="font-xl mb-10 font-semibold leading-tight text-black dark:text-white">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -71,15 +74,11 @@ const BlogDetailsPage = () => {
                     <li className="mb-2">
                       Consectetur adipiscing elit in voluptate velit.
                     </li>
-                    <li className="mb-2">
-                      Mattis vulputate cupidatat.
-                    </li>
+                    <li className="mb-2">Mattis vulputate cupidatat.</li>
                     <li className="mb-2">
                       Vulputate enim nulla aliquet porttitor odio pellentesque
                     </li>
-                    <li className="mb-2">
-                      Ligula ullamcorper malesuada proin
-                    </li>
+                    <li className="mb-2">Ligula ullamcorper malesuada proin</li>
                   </ul>
                   <p className="mb-6 text-sm leading-relaxed text-black dark:text-white">
                     consectetur adipiscing elit in voluptate velit esse cillum
@@ -88,9 +87,6 @@ const BlogDetailsPage = () => {
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
-              <GetDocumentBox />
             </div>
           </div>
         </div>
