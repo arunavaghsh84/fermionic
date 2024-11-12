@@ -6,6 +6,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { Montserrat } from "next/font/google";
 import "node_modules/react-modal-video/css/modal-video.css";
 import { Providers } from "@/app/providers";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -23,6 +25,7 @@ export default function RootLayout({
       <head />
 
       <body className={`bg-[#FCFCFC] dark:bg-black ${montserrat.className}`}>
+        <ToastContainer position="bottom-right" />
         <Providers>
           <Header />
           {children}
@@ -33,4 +36,3 @@ export default function RootLayout({
     </html>
   );
 }
-

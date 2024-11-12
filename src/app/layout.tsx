@@ -25,9 +25,7 @@ export default function BaseLayout({
     <html suppressHydrationWarning lang="en">
       <head />
       <body className={`bg-[#FCFCFC] dark:bg-black ${montserrat.className}`}>
-        <Providers>
-          {loading ? <Loader /> : children}
-        </Providers>
+        <Providers>{loading ? <Loader /> : children}</Providers>
       </body>
     </html>
   );
