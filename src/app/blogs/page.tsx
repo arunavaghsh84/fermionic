@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 };
 
 const Blogs = () => {
-  
   return (
     <RootLayout>
       <Breadcrumb

@@ -6,9 +6,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { Tooltip } from "@nextui-org/react";
+import { Product } from "@/types/product";
 
-const GetDocumentBox = () => {
+const GetDocumentBox = ({ product }: { product: Product }) => {
   const { theme } = useTheme();
+  const { files } = product;
 
   // Sticky Sidebar
   const [sticky, setSticky] = useState(false);
@@ -27,46 +29,43 @@ const GetDocumentBox = () => {
     <div
       className={`relative z-10 rounded-sm bg-white p-8 shadow-three transition dark:bg-gray-dark ${sticky ? "sticky top-20" : ""}`}
     >
-      <h3 className="mb-4 text-xl font-semibold leading-tight text-dark dark:text-white">
-        Download Data Sheet Briefs
-      </h3>
-      <ul className="mb-3 border-b border-body-color border-opacity-25 pb-2 text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
-        <li className="mb-3 flex items-center gap-3 hover:cursor-pointer hover:text-primary">
-          <Image src="/images/pdf.png" alt="icon" width={20} height={20} />
-          <Tooltip
-            showArrow={true}
-            content="Download PDF"
-            placement="top"
-            color="foreground"
-          >
-            <Link href="#" className="text-sm text-black hover:text-primary">Lorem Ipsum</Link>
-          </Tooltip>
-        </li>
-        <li className="mb-3 hover:cursor-pointer hover:text-primary">
-          <div className="flex items-center gap-3">
-            <Image src="/images/pdf.png" alt="icon" width={20} height={20} />
-            <Tooltip
-              showArrow={true}
-              content="Download PDF"
-              placement="top"
-              color="foreground"
-            >
-              <Link href="#" className="text-sm text-black hover:text-primary">Lorem Ipsum Dummy Text</Link>
-            </Tooltip>
-          </div>
-        </li>
-        <li className="mb-3 flex items-center gap-3 hover:cursor-pointer hover:text-primary">
-          <Image src="/images/pdf.png" alt="icon" width={20} height={20} />
-          <Tooltip
-            showArrow={true}
-            content="Download PDF"
-            placement="top"
-            color="foreground"
-          >
-            <Link href="#" className="text-sm text-black hover:text-primary">Lorem Ipsum</Link>
-          </Tooltip>
-        </li>
-      </ul>
+      {files.length > 0 && (
+        <>
+          <h3 className="mb-4 text-xl font-semibold leading-tight text-dark dark:text-white">
+            Download Data Sheet Briefs
+          </h3>
+          <ul className="mb-3 border-b border-body-color border-opacity-25 pb-2 text-base leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
+            {files.map((file) => (
+              <li
+                key={file._id}
+                className="mb-3 flex items-center gap-3 hover:cursor-pointer hover:text-primary"
+              >
+                <Image
+                  src="/images/pdf.png"
+                  alt="icon"
+                  width={20}
+                  height={20}
+                />
+                <Tooltip
+                  showArrow={true}
+                  content="Download PDF"
+                  placement="top"
+                  color="foreground"
+                >
+                  <Link
+                    href={file.url}
+                    download={true}
+                    target="_blank"
+                    className="text-sm text-black hover:text-primary"
+                  >
+                    {file.name}
+                  </Link>
+                </Tooltip>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
       <h3 className="mb-3 text-xl font-semibold leading-tight text-dark dark:text-white">
         Get The Documents
       </h3>
@@ -78,18 +77,18 @@ const GetDocumentBox = () => {
           type="text"
           name="name"
           placeholder="Enter your full name"
-          className="rounded-lg border-stroke mb-4 w-full border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+          className="border-stroke mb-4 w-full rounded-lg border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
         />
         <input
           type="email"
           name="email"
           placeholder="Enter your email"
-          className="rounded-lg border-stroke mb-4 w-full border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+          className="border-stroke mb-4 w-full rounded-lg border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
         />
         <input
           type="submit"
           value="Contact Us"
-          className="w-full mb-4 rounded-lg bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
+          className="mb-4 w-full rounded-lg bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
         />
         <p className="text-center text-sm leading-relaxed text-black dark:text-body-color-dark">
           No spam guaranteed, So please don&apos;t send any spam mail.

@@ -1,6 +1,4 @@
-import { Product } from "@/types/product";
-
-const productsData: Product[] = [
+const productsData = [
   {
     id: 1,
     icon: (

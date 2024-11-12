@@ -1,35 +1,35 @@
 import connectMongo from "../../lib/mongodb";
-import Blog from "../../models/Blog";
+import Product from "../../models/Product";
 import { NextRequest, NextResponse } from "next/server";
 import User from "@/app/models/User";
 
-// POST: Create a new blog
+// POST: Create a new product
 export async function POST(request: Request) {
   await connectMongo();
 
   const body = await request.json();
-  const { createdBy, title, shortDescription, content, image } = body;
+  const { name, shortDescription, details, files, isFeatured } = body;
 
-  if (!title || !shortDescription || !content || !image) {
+  if (!name || !shortDescription || !details) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
   try {
-    const blog = await Blog.create({
-      createdBy,
-      title,
+    const product = await Product.create({
+      name,
       shortDescription,
-      content,
-      image,
+      details,
+      files,
+      isFeatured,
     });
 
-    return NextResponse.json({ blog }, { status: 201 });
+    return NextResponse.json({ product }, { status: 201 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
-// GET: Get all blogs
+// GET: Get all products
 export async function GET() {
   try {
     await connectMongo();
@@ -39,15 +39,15 @@ export async function GET() {
     // After understanding the error I will remove this
     User.find({}).limit(1);
 
-    const blogs = await Blog.find({}).populate("createdBy");
+    const products = await Product.find({});
 
-    return NextResponse.json(blogs, { status: 200 });
+    return NextResponse.json(products, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
-// PUT: Update a blog (use ID as a query param)
+// PUT: Update a product (use ID as a query param)
 export async function PUT(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id");
@@ -55,22 +55,22 @@ export async function PUT(request: NextRequest) {
   await connectMongo();
 
   const body = await request.json();
-  const { title, shortDescription, content, image } = body;
+  const { name, shortDescription, details, files, isFeatured } = body;
 
   try {
-    const blog = await Blog.findByIdAndUpdate(
+    const product = await Product.findByIdAndUpdate(
       id,
-      { title, shortDescription, content, image },
+      { name, shortDescription, details, files, isFeatured },
       { new: true },
     );
 
-    return NextResponse.json({ blog });
+    return NextResponse.json({ product });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
-// DELETE: Delete a blog (use ID as a query param)
+// DELETE: Delete a product (use ID as a query param)
 export async function DELETE(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
@@ -78,7 +78,7 @@ export async function DELETE(req: NextRequest) {
   await connectMongo();
 
   try {
-    await Blog.findByIdAndDelete(id);
+    await Product.findByIdAndDelete(id);
 
     return NextResponse.json(null);
   } catch (error) {
