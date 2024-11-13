@@ -6,6 +6,8 @@ import "../styles/index.css";
 import "../styles/custom.scss";
 import { useEffect, useState } from "react";
 import Loader from "@/components/Common/Loader";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // const inter = Inter({ subsets: ["latin"] });
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -25,6 +27,7 @@ export default function BaseLayout({
     <html suppressHydrationWarning lang="en">
       <head />
       <body className={`bg-[#FCFCFC] dark:bg-black ${montserrat.className}`}>
+        <ToastContainer position="bottom-right" />
         <Providers>{loading ? <Loader /> : children}</Providers>
       </body>
     </html>

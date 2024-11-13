@@ -205,25 +205,29 @@ const Contact = () => {
                       )}
                     </div>
                   </div>
-                  <div className="w-full px-4">
-                    {/* Google reCAPTCHA */}
-                    <ReCAPTCHA
-                      sitekey={
-                        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string
-                      }
-                      ref={recaptchaRef}
-                    />
-                    {errors.recaptcha && (
-                      <p className="text-sm text-red-500">{errors.recaptcha}</p>
-                    )}
-                  </div>
-                  <div className="w-full px-4 text-end">
-                    <button
-                      disabled={isSubmitting}
-                      className="inline-block rounded-lg bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
-                    >
-                      {isSubmitting ? "Submitting..." : "Submit"}
-                    </button>
+                  <div className="flex justify-end w-full items-center gap-4">
+                    <div className="w-1/2 px-4">
+                      {/* Google reCAPTCHA */}
+                      <ReCAPTCHA
+                        sitekey={
+                          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string
+                        }
+                        ref={recaptchaRef}
+                      />
+                      {errors.recaptcha && (
+                        <p className="text-sm text-red-500">
+                          {errors.recaptcha}
+                        </p>
+                      )}
+                    </div>
+                    <div className="w-1/2 px-4 text-end">
+                      <button
+                        disabled={isSubmitting}
+                        className="inline-block rounded-lg bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
+                      >
+                        {isSubmitting ? "Submitting..." : "Submit"}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </form>
