@@ -205,7 +205,7 @@ const Contact = () => {
                       )}
                     </div>
                   </div>
-                  <div className="flex justify-end w-full items-center gap-4">
+                  <div className="flex w-full items-center justify-end gap-4">
                     <div className="w-1/2 px-4">
                       {/* Google reCAPTCHA */}
                       <ReCAPTCHA

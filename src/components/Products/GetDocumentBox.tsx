@@ -3,10 +3,12 @@
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Tooltip } from "@nextui-org/react";
 import { Product } from "@/types/product";
+import ReCAPTCHA from "react-google-recaptcha";
+import { toast } from "react-toastify";
 
 const GetDocumentBox = ({ product }: { product: Product }) => {
   const { theme } = useTheme();
@@ -21,9 +23,86 @@ const GetDocumentBox = ({ product }: { product: Product }) => {
       setSticky(false);
     }
   };
+
   useEffect(() => {
     window.addEventListener("scroll", handleStickySidebar);
   });
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+  });
+
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" })); // Clear error on input change
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrors({});
+
+    // Get reCAPTCHA token
+    const recaptchaToken = recaptchaRef.current?.getValue();
+
+    if (!recaptchaToken) {
+      setErrors((prev) => ({
+        ...prev,
+        recaptcha: "Please complete the reCAPTCHA",
+      }));
+
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(
+        `/api/products/${product._id}/get_documents_request`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...formData, recaptchaToken }),
+        },
+      );
+
+      if (response.ok) {
+        setFormData({
+          name: "",
+          email: "",
+        });
+
+        toast.success("Request sent successfully!");
+      } else {
+        const data = await response.json();
+
+        if (data.errors) {
+          setErrors(data.errors);
+        } else {
+          toast.error("Failed to send request");
+        }
+      }
+
+      setIsSubmitting(false);
+    } catch (error) {
+      console.error("Failed to send request", error);
+      toast.error("Failed to send request");
+
+      setIsSubmitting(false);
+    } finally {
+      // Reset the reCAPTCHA after submission
+      recaptchaRef.current?.reset();
+    }
+  };
 
   return (
     <div
@@ -73,23 +152,47 @@ const GetDocumentBox = ({ product }: { product: Product }) => {
         We will send you the documents by email.
       </p>
       <div>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter your full name"
-          className="border-stroke mb-4 w-full rounded-lg border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter your email"
-          className="border-stroke mb-4 w-full rounded-lg border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-        />
-        <input
-          type="submit"
-          value="Contact Us"
-          className="mb-4 w-full rounded-lg bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
-        />
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Enter your full name"
+              className="border-stroke w-full rounded-lg border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+            />
+            {errors.name && (
+              <p className="text-sm text-red-500">{errors.name}</p>
+            )}
+          </div>
+          <div className="mb-4">
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              className="border-stroke w-full rounded-lg border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+            />
+            {errors.email && (
+              <p className="text-sm text-red-500">{errors.email}</p>
+            )}
+          </div>
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
+            ref={recaptchaRef}
+          />
+          {errors.recaptcha && (
+            <p className="text-sm text-red-500">{errors.recaptcha}</p>
+          )}
+          <button
+            disabled={isSubmitting}
+            className="my-4 w-full rounded-lg bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
+          >
+            {isSubmitting ? "Sending..." : "Contact Us"}
+          </button>
+        </form>
         <p className="text-center text-sm leading-relaxed text-black dark:text-body-color-dark">
           No spam guaranteed, So please don&apos;t send any spam mail.
         </p>
