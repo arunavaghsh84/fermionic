@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
             height={425}
           />
           <div className="container">
-            <div className="absolute top-12 z-10 md:mt-12 max-w-[320px] pl-10 pt-16 sm:max-w-[500px]">
+            <div className="absolute top-12 z-10 max-w-[320px] pl-10 pt-16 sm:max-w-[500px] md:mt-12">
               <h1 className="mb-5 text-xl font-semibold leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:text-4xl md:leading-tight">
                 Wireline Transceivers
               </h1>
@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
             height={425}
           />
           <div className="container">
-            <div className="absolute top-12 z-10 md:mt-12 max-w-[320px] pl-10 pt-16 sm:max-w-[500px]">
+            <div className="absolute top-12 z-10 max-w-[320px] pl-10 pt-16 sm:max-w-[500px] md:mt-12">
               <h1 className="mb-5 text-xl font-semibold leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:text-4xl md:leading-tight">
                 RF Wireless Communication
               </h1>
@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
             height={425}
           />
           <div className="container">
-            <div className="absolute top-12 z-10 md:mt-12 max-w-[320px] pl-10 pt-16 sm:max-w-[500px]">
+            <div className="absolute top-12 z-10 max-w-[320px] pl-10 pt-16 sm:max-w-[500px] md:mt-12">
               <h1 className="mb-5 text-xl font-semibold leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:text-4xl md:leading-tight">
                 Automotive SERDES
               </h1>
@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
             height={425}
           />
           <div className="container">
-            <div className="absolute top-12 z-10 md:mt-12 max-w-[320px] pl-10 pt-16 sm:max-w-[500px]">
+            <div className="absolute top-12 z-10 max-w-[320px] pl-10 pt-16 sm:max-w-[500px] md:mt-12">
               <h1 className="mb-5 text-xl font-semibold leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:text-4xl md:leading-tight">
                 Microcontrollers
               </h1>
