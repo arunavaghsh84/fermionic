@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
           <div className="container">
             <div className="absolute top-12 z-10 md:mt-12 max-w-[320px] pl-10 pt-16 sm:max-w-[500px]">
               <h1 className="mb-5 text-xl font-semibold leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:text-4xl md:leading-tight">
-                D2D and SiP Subsystem
+                Microcontrollers
               </h1>
               <p className="mb-12 text-sm text-white dark:text-body-color-dark sm:text-base">
                 Developing High-Performance D2D PHY for Protocol and
