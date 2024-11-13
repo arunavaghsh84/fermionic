@@ -33,7 +33,7 @@ const ProductDetailsPage = () => {
             <div className="-mx-4 flex flex-wrap justify-center">
               <div className="w-full px-4 lg:w-8/12">
                 <div>
-                  <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
+                  <h2 className="sm:2xl mb-2 text-2xl font-semibold text-dark dark:text-white sm:mb-4 md:text-3xl">
                     {product.name}
                   </h2>
                   <div dangerouslySetInnerHTML={{ __html: product.details }} />
