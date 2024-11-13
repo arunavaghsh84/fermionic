@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SectionTitle from "../Common/SectionTitle";
 
 const checkIcon = (
   <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -9,7 +8,7 @@ const checkIcon = (
 
 const AboutSection = () => {
   const List = ({ text }) => (
-    <p className="mb-5 flex items-center text-lg font-medium text-body-color">
+    <p className="mb-5 flex items-center text-sm text-black dark:text-white">
       <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
         {checkIcon}
       </span>
@@ -21,29 +20,24 @@ const AboutSection = () => {
     <section id="leadership" className="pt-6 md:pt-20 lg:pt-8">
       <div className="container">
         <div className="border-b border-body-color/[.15] pb-6 dark:border-white/[.15] md:pb-8 lg:pb-10">
-          <div className="-mx-4 flex flex-wrap items-center">
+          <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-1/2">
-              <div className="lg: relative order-1 order-2 mx-auto aspect-[25/24] max-w-[500px] lg:ml-0">
+              <div className="lg: relative order-1 order-2 mx-auto max-w-[500px] lg:ml-0">
                 <Image
-                  src="/images/about/about-image.svg"
+                  src="/images/about/about.jpg"
                   alt="about-image"
-                  fill
+                  width={500}
+                  height={500}
                   className="mx-auto max-w-full drop-shadow-three dark:hidden dark:drop-shadow-none lg:mr-0"
-                />
-                <Image
-                  src="/images/about/gautam_da.png"
-                  alt="about-image"
-                  fill
-                  className="mx-auto hidden max-w-full drop-shadow-three dark:block dark:drop-shadow-none lg:mr-0"
                 />
               </div>
             </div>
 
             <div className="w-full px-4 lg:w-1/2">
-              <h3 className="my-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
+              <h3 className="my-4 text-xl font-semibold text-dark dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
                 Lorem Ipsum
               </h3>
-              <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:pb-0">
+              <p className="text-sm leading-relaxed text-black sm:leading-relaxed lg:pb-0">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris

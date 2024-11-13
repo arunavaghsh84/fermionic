@@ -11,9 +11,9 @@ const Footer = () => {
       <footer className="relative z-10 bg-black pt-6 dark:bg-gray-dark lg:pt-8">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
-              <div className="mb-8 max-w-[360px] lg:mb-10">
-                <Link href="/" className="mb-8 inline-block">
+            <div className="w-full px-4 md:w-1/3 lg:w-4/12 xl:w-6/12">
+              <div className="mb-8 max-w-[360px]">
+                <Link href="/" className="mb-6 inline-block">
                   <Image
                     src="/images/logo/logo-white.png"
                     alt="logo"
@@ -29,7 +29,7 @@ const Footer = () => {
                     height={30}
                   />
                 </Link>
-                <p className="mb-9 text-base leading-relaxed text-white dark:text-body-color-dark">
+                <p className="mb-6 text-sm leading-relaxed text-white dark:text-body-color-dark">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Integer lobortis.
                 </p>
@@ -112,24 +112,24 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
+            <div className="w-full px-4 sm:w-1/2 md:w-1/3 lg:w-2/12 xl:w-3/12">
               <div className="mb-6 lg:mb-8">
-                <h2 className="mb-4 text-xl font-bold text-white dark:text-white">
+                <h2 className="mb-4 text-xl font-semibold text-white dark:text-white">
                   Useful Links
                 </h2>
                 <ul>
                   <li>
                     <Link
                       href="/about"
-                      className="mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-sm text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       About
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/blog"
-                      className="mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      href="/blogs"
+                      className="mb-4 inline-block text-sm text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Blog
                     </Link>
@@ -137,7 +137,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/career"
-                      className="mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-sm text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Careers
                     </Link>
@@ -146,16 +146,16 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
+            <div className="w-full px-4 sm:w-1/2 md:w-1/3 lg:w-2/12 xl:w-3/12">
               <div className="mb-6 lg:mb-8">
-                <h2 className="mb-4 text-xl font-bold text-white dark:text-white">
+                <h2 className="mb-4 text-xl font-semibold text-white dark:text-white">
                   Terms
                 </h2>
                 <ul>
                   <li>
                     <Link
                       href="/"
-                      className="dark:text-white-dark mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:hover:text-primary"
+                      className="dark:text-white-dark mb-4 inline-block text-sm text-white duration-300 hover:text-primary dark:hover:text-primary"
                     >
                       Privacy Policy
                     </Link>
@@ -163,7 +163,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/"
-                      className="mb-4 inline-block text-base text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-sm text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Terms & Conditions
                     </Link>
@@ -172,7 +172,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
+            {/* <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-6 lg:mb-8">
                 <h2 className="mb-4 text-xl font-bold text-white dark:text-white">
                   Support & Help
@@ -204,12 +204,12 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
-          <div className="py-4">
-            <p className="text-center text-sm text-white dark:text-white">
+          <div className="py-3">
+            <p className="text-center text-xs text-white dark:text-white">
               &copy; {year} by{" "}
               <a
                 href="https://www.fermionic.design/"

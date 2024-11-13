@@ -14,25 +14,25 @@ const menuData: Menu[] = [
     submenu: [
       {
         id: 21,
-        title: "Signal Integriity IC",
+        title: "RF Beamformer",
         path: "/product-details",
         newTab: false,
       },
       {
         id: 22,
-        title: "LDO Products",
+        title: "RF Front End Modules",
         path: "/product-details",
         newTab: false,
       },
       {
         id: 23,
-        title: "Clock Divers IC",
+        title: "Power Management",
         path: "/product-details",
         newTab: false,
       },
       {
         id: 24,
-        title: "RF IC",
+        title: "Microcontrollers",
         path: "/product-details",
         newTab: false,
       },
@@ -45,19 +45,19 @@ const menuData: Menu[] = [
     submenu: [
       {
         id: 31,
-        title: "PLL IP",
+        title: "Multi-Protocol SERDES",
         path: "/product-details",
         newTab: false,
       },
       {
         id: 32,
-        title: "SERDES IP",
+        title: "Phase Locked Loop",
         path: "/product-details",
         newTab: false,
       },
       {
         id: 33,
-        title: "Analog-Glue IP",
+        title: "Miscellaneous",
         path: "/product-details",
         newTab: false,
       },
@@ -90,8 +90,8 @@ const menuData: Menu[] = [
   },
   {
     id: 5,
-    title: "Blog",
-    path: "/blog",
+    title: "Blogs",
+    path: "/blogs",
     newTab: false,
   },
   {

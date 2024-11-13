@@ -1,5 +1,7 @@
 "use client";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
+import Image from "next/image";
+import Link from "next/link";
 
 const AccordionItem = ({ header, ...rest }) => (
   <Item
@@ -7,12 +9,14 @@ const AccordionItem = ({ header, ...rest }) => (
     header={({ state: { isEnter } }) => (
       <>
         {header}
-        <img
+        <Image
           className={`ml-auto transition-transform duration-200 ease-out ${
             isEnter && "rotate-180"
           }`}
           src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJpY29uIGljb24tdGFibGVyIGljb24tdGFibGVyLWNoZXZyb24tZG93biIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgPHBhdGggc3Ryb2tlPSJub25lIiBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+CiAgPHBvbHlsaW5lIHBvaW50cz0iNiA5IDEyIDE1IDE4IDkiIC8+Cjwvc3ZnPgoKCg=="
           alt="Chevron"
+          width={20}
+          height={20}
         />
       </>
     )}
@@ -50,160 +54,172 @@ const Career = () => {
     <section id="contact" className="overflow-hidden py-4 md:py-6 lg:py-8">
       <div className="container">
         <div className="flex flex-col justify-center">
-          <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
+          <h2 className="mb-4 text-2xl font-semibold capitalize text-dark dark:text-white sm:2xl md:text-3xl">
             Transform your Future, We are hiring
           </h2>
-          <p className="my-6 text-base font-medium text-body-color">
-            At Fermionic, we&apos;re continuously looking for smart and passionate
-            engineers ready to drive and contribute on our product roadmap. We
-            seek people who are intelligent than us. That&apos;s how we create a
-            company of high-performance innovators for a meaningful impact on
-            the semiconductor IC and product design.
+          <p className="mb-8 text-sm text-black dark:text-white">
+            At Fermionic, we&apos;re continuously looking for smart and
+            passionate engineers ready to drive and contribute on our product
+            roadmap. We seek people who are intelligent than us. That&apos;s how
+            we create a company of high-performance innovators for a meaningful
+            impact on the semiconductor IC and product design.
           </p>
-          <h4 className="mb-6 text-xl font-bold text-black dark:text-white">
+          {/* <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
             We have multiple openings for Analog designers, Layout Engineers,
             Digital Designers, Silicon-Validation Engineers. <br />
             Please contact us on{" "}
             <span className="text-primary">careers@fermionic.design</span>
-          </h4>
+          </h4> */}
         </div>
-        <div>
-          <Accordion transition transitionTimeout={200}>
-            <AccordionItem
-              header="Senior Manager / Principal Engineer Silicon Validation"
-              initialEntered
-            >
-              <p className="mb-4">
-                <span className="font-bold text-primary">
-                  Responsibilities:
-                </span>{" "}
-                Plan, develop, and execute tests to validate a hardware SERDES,
-                RF-Front-End IP, power-management ICs and integration at the
-                system level.
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Qualification:</span>{" "}
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-              </p>
-              <ul className="mb-10 list-inside list-disc">
-                <li className="mb-2">
-                  10+ years of relevant Silicon-validation, Debug/Test and
-                  complete product-lifecycle-management experience, Hands-on
-                  experience in chip bring-up and silicon debug
-                </li>
-                <li className="mb-2">
-                  Bachelor&apos;s degree in Electronics/Electrical/Instrumentation
-                  Engineering or equivalent practical experience. Master&apos;s
-                  Degree preferred
-                </li>
-              </ul>
-              <p className="font-bold">
-                Send your CV at:{" "}
-                <span className="text-primary">careers@fermionic.design</span>
-              </p>
-            </AccordionItem>
+        <div className="flex">
+          <div className="w-1/2">
+            <Accordion transition transitionTimeout={200} className="text-sm">
+              <AccordionItem
+                header="Senior Manager / Principal Engineer Silicon Validation"
+                initialEntered
+              >
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">
+                    Responsibilities:
+                  </span>{" "}
+                  Plan, develop, and execute tests to validate a hardware
+                  SERDES, RF-Front-End IP, power-management ICs and integration
+                  at the system level.
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Qualification:</span>{" "}
+                  consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua.
+                </p>
+                <ul className="mb-6 list-inside list-disc">
+                  <li className="mb-2">
+                    10+ years of relevant Silicon-validation, Debug/Test and
+                    complete product-lifecycle-management experience, Hands-on
+                    experience in chip bring-up and silicon debug
+                  </li>
+                  <li className="mb-2">
+                    Bachelor&apos;s degree in
+                    Electronics/Electrical/Instrumentation Engineering or
+                    equivalent practical experience. Master&apos;s Degree
+                    preferred
+                  </li>
+                </ul>
+                <p className="font-semibold">
+                  Send your CV at:{" "}
+                  <Link href="mailto:careers@fermionic.design" className="text-primary">careers@fermionic.design</Link>
+                </p>
+              </AccordionItem>
 
-            <AccordionItem header=" Analog/Mixed-Signal Design Engineer">
-              <p className="mb-4">
-                <span className="font-bold text-primary">
-                  Lorem ipsum dolor sit amet:
-                </span>{" "}
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Lorem ipsum:</span>{" "}
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">
-                  Lorem ipsum dolor:
-                </span>{" "}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Place:</span> Kolkata
-                office
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Role Category:</span>{" "}
-                Website Design
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Education:</span> A
-                bachelor&apos;s degree in fields like Graphic Design, Interaction
-                Design or related areas.
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Key Skills:</span>{" "}
-                Desired profile of the candidate good knowledge in UI / UX,
-                Figma, , Photoshop, Web Design, Mobile App screen design.
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Experience:</span> 2 -
-                5 years
-              </p>
-              <p className="font-bold">
-                Send your CV at:{" "}
-                <span className="text-primary">careers@fermionic.design</span>
-              </p>
-            </AccordionItem>
+              <AccordionItem header="Analog/Mixed-Signal Design Engineer">
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">
+                    Lorem ipsum dolor sit amet:
+                  </span>{" "}
+                  consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua.
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Lorem ipsum:</span>{" "}
+                  consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua.
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">
+                    Lorem ipsum dolor:
+                  </span>{" "}
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Place:</span> Kolkata
+                  office
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Role Category:</span>{" "}
+                  Website Design
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Education:</span> A
+                  bachelor&apos;s degree in fields like Graphic Design,
+                  Interaction Design or related areas.
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Key Skills:</span>{" "}
+                  Desired profile of the candidate good knowledge in UI / UX,
+                  Figma, , Photoshop, Web Design, Mobile App screen design.
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Experience:</span> 2
+                  - 5 years
+                </p>
+                <p className="font-semibold">
+                  Send your CV at:{" "}
+                  <span className="text-primary">careers@fermionic.design</span>
+                </p>
+              </AccordionItem>
 
-            <AccordionItem header="What is Lorem Ipsum?">
-              <p className="mb-4">
-                <span className="font-bold text-primary">
-                  Lorem ipsum dolor sit amet:
-                </span>{" "}
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Lorem ipsum:</span>{" "}
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">
-                  Lorem ipsum dolor:
-                </span>{" "}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Place:</span> Kolkata
-                office
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Role Category:</span>{" "}
-                Website Design
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Education:</span> A
-                bachelor&apos;s degree in fields like Graphic Design, Interaction
-                Design or related areas.
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Key Skills:</span>{" "}
-                Desired profile of the candidate good knowledge in UI / UX,
-                Figma, , Photoshop, Web Design, Mobile App screen design.
-              </p>
-              <p className="mb-4">
-                <span className="font-bold text-primary">Experience:</span> 2 -
-                5 years
-              </p>
-              <p className="font-bold">
-                Send your CV at:{" "}
-                <span className="text-primary">careers@fermionic.design</span>
-              </p>
-            </AccordionItem>
-          </Accordion>
+              <AccordionItem header="What is Lorem Ipsum?">
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">
+                    Lorem ipsum dolor sit amet:
+                  </span>{" "}
+                  consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua.
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Lorem ipsum:</span>{" "}
+                  consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua.
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">
+                    Lorem ipsum dolor:
+                  </span>{" "}
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Place:</span> Kolkata
+                  office
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Role Category:</span>{" "}
+                  Website Design
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Education:</span> A
+                  bachelor&apos;s degree in fields like Graphic Design,
+                  Interaction Design or related areas.
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Key Skills:</span>{" "}
+                  Desired profile of the candidate good knowledge in UI / UX,
+                  Figma, , Photoshop, Web Design, Mobile App screen design.
+                </p>
+                <p className="mb-4">
+                  <span className="font-semibold text-dark">Experience:</span> 2
+                  - 5 years
+                </p>
+                <p className="font-semibold">
+                  Send your CV at:{" "}
+                  <span className="text-primary">careers@fermionic.design</span>
+                </p>
+              </AccordionItem>
+            </Accordion>
+          </div>
+          <div className="w-1/2">
+            <Image
+              src="/images/career/we-are-hiring-.jpg"
+              alt="career-image"
+              width={500}
+              height={500}
+              className="mx-auto max-w-full drop-shadow-three dark:hidden dark:drop-shadow-none lg:mr-0"
+            />
+          </div>
         </div>
       </div>
     </section>

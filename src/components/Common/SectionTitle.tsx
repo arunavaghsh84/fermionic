@@ -1,11 +1,9 @@
-import "animate.css/animate.compat.css";
-
 const SectionTitle = ({
   title,
   paragraph,
   width = "570px",
   center,
-  mb = "60px",
+  mb = "40px",
 }: {
   title: string;
   paragraph: string;
@@ -16,13 +14,13 @@ const SectionTitle = ({
   return (
     <>
       <div
-        className={`w-full ${center ? "mx-auto text-center" : ""}`}
+        className={`w-full ${center ? "mx-auto text-center" : ""} section-title`}
         style={{ maxWidth: width, marginBottom: mb }}
       >
-        <h2 className="mb-4 text-3xl font-bold !leading-tight text-black dark:text-white sm:text-4xl md:text-[45px]">
+        <h2 className="mb-2 sm:mb-4 text-2xl font-semibold capitalize text-dark dark:text-white sm:2xl md:text-3xl">
           {title}
         </h2>
-        <p className="text-base !leading-relaxed text-body-color md:text-lg">
+        <p className="text-sm text-black md:text-base">
           {paragraph}
         </p>
       </div>

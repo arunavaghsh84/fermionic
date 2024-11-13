@@ -3,10 +3,11 @@ type Author = {
 };
 
 export type Blog = {
-  id: number;
+  _id: number;
   title: string;
-  paragraph: string;
+  shortDescription: string;
+  content: string;
   image: string;
-  author: Author;
-  publishDate: string;
+  createdBy: Author;
+  createdAt: string;
 };
