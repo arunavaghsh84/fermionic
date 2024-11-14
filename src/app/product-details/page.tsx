@@ -19,7 +19,7 @@ const BlogDetailsPage = () => {
             <div className="w-full px-4 lg:w-8/12">
               <div>
                 <h2 className="sm:2xl mb-2 text-2xl font-semibold text-dark dark:text-white sm:mb-4 md:text-3xl">
-                  Signal Integriity IC
+                  RF Beamformers
                 </h2>
                 <div>
                   <p className="mb-6 text-sm leading-relaxed text-black dark:text-white">

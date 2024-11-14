@@ -30,12 +30,12 @@ const LeadershipPage = () => {
         <Tabs className="my-8">
           <TabList>
             <Tab>
-              <Card className="max-w-[300px]">
+              <Card className="">
                 <CardHeader className="block">
                   <Image
                     src="/images/leadership/gautam_da.png"
                     alt="leadership image"
-                    width={280}
+                    width={500}
                     height={50}
                     className="drop-shadow-three dark:hidden dark:drop-shadow-none"
                   />
@@ -57,7 +57,7 @@ const LeadershipPage = () => {
                       />
                     </Link>
                   </div>
-                  <p>
+                  <p className="h-[60px]">
                     Frontend developer and UI/UX enthusiast. Join me on this
                     coding adventure!
                   </p>
@@ -65,12 +65,12 @@ const LeadershipPage = () => {
               </Card>
             </Tab>
             <Tab>
-              <Card className="max-w-[300px]">
+              <Card className="">
                 <CardHeader className="block justify-between">
                   <Image
                     src="/images/leadership/gautam_da.png"
                     alt="leadership image"
-                    width={280}
+                    width={500}
                     height={50}
                     className="drop-shadow-three dark:hidden dark:drop-shadow-none"
                   />
@@ -92,7 +92,7 @@ const LeadershipPage = () => {
                       />
                     </Link>
                   </div>
-                  <p>
+                  <p className="h-[60px]">
                     Frontend developer and UI/UX enthusiast. Join me on this
                     coding adventure!
                   </p>
@@ -100,12 +100,12 @@ const LeadershipPage = () => {
               </Card>
             </Tab>
             <Tab>
-              <Card className="max-w-[300px]">
+              <Card className="">
                 <CardHeader className="block justify-between">
                   <Image
                     src="/images/leadership/gautam_da.png"
                     alt="leadership image"
-                    width={280}
+                    width={500}
                     height={50}
                     className="drop-shadow-three dark:hidden dark:drop-shadow-none"
                   />
@@ -129,7 +129,7 @@ const LeadershipPage = () => {
                       />
                     </Link>
                   </div>
-                  <p>
+                  <p className="h-[60px]">
                     Frontend developer and UI/UX enthusiast. Join me on this
                     coding adventure!
                   </p>
@@ -137,12 +137,12 @@ const LeadershipPage = () => {
               </Card>
             </Tab>
             <Tab>
-              <Card className="max-w-[300px]">
+              <Card className="">
                 <CardHeader className="block justify-between">
                   <Image
                     src="/images/leadership/gautam_da.png"
                     alt="leadership image"
-                    width={280}
+                    width={500}
                     height={50}
                     className="drop-shadow-three dark:hidden dark:drop-shadow-none"
                   />
@@ -166,7 +166,7 @@ const LeadershipPage = () => {
                       />
                     </Link>
                   </div>
-                  <p>
+                  <p className="h-[60px]">
                     Frontend developer and UI/UX enthusiast. Join me on this
                     coding adventure!
                   </p>
