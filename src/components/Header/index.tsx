@@ -9,6 +9,8 @@ import menuData from "./menuData";
 const Header = () => {
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [menuItems, setMenuItems] = useState(menuData);
+
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
@@ -37,6 +39,55 @@ const Header = () => {
   };
 
   const usePathName = usePathname();
+
+  useEffect(() => {
+    fetchProducts();
+    fetchSiliconIPs();
+  }, []);
+
+  const fetchProducts = async () => {
+    const res = await fetch("/api/products");
+
+    if (res.ok) {
+      const data = await res.json();
+
+      const menu = menuItems.find((item) => item.id === 2);
+      menu.submenu = data.map(({ _id, name }) => {
+        return {
+          id: _id,
+          title: name,
+          path: `/products/${_id}`,
+          newTab: false,
+        };
+      });
+
+      setMenuItems(menuItems);
+    } else {
+      console.error("Error fetching products");
+    }
+  };
+
+  const fetchSiliconIPs = async () => {
+    const res = await fetch("/api/siliconIPs");
+
+    if (res.ok) {
+      const data = await res.json();
+
+      const menu = menuItems.find((item) => item.id === 3);
+      menu.submenu = data.map(({ _id, name }) => {
+        return {
+          id: _id,
+          title: name,
+          path: `/siliconIPs/${_id}`,
+          newTab: false,
+        };
+      });
+
+      setMenuItems(menuItems);
+    } else {
+      console.error("Error fetching products");
+    }
+  };
 
   return (
     <>
