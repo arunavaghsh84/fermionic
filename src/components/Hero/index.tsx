@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
           <div className="container">
             <div className="absolute top-12 z-10 max-w-[320px] pl-10 pt-16 sm:max-w-[500px] md:mt-12">
               <h1 className="mb-5 text-xl font-semibold leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:text-4xl md:leading-tight">
-                Wireline Transceivers
+                RF Beamformers
               </h1>
               <p className="mb-12 text-sm text-white dark:text-body-color-dark sm:text-base">
                 Developing PPA optimized NRZ and PAM4 SerDes transceiver core
@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
           <div className="container">
             <div className="absolute top-12 z-10 max-w-[320px] pl-10 pt-16 sm:max-w-[500px] md:mt-12">
               <h1 className="mb-5 text-xl font-semibold leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:text-4xl md:leading-tight">
-                RF Wireless Communication
+                RF Front End Modules
               </h1>
               <p className="mb-12 text-sm text-white dark:text-body-color-dark sm:text-base">
                 Developing Quad-Transceiver Beamformer IC for 6-10.5 GHz with
@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
           <div className="container">
             <div className="absolute top-12 z-10 max-w-[320px] pl-10 pt-16 sm:max-w-[500px] md:mt-12">
               <h1 className="mb-5 text-xl font-semibold leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:text-4xl md:leading-tight">
-                Automotive SERDES
+                Power Management
               </h1>
               <p className="mb-12 text-sm text-white dark:text-body-color-dark sm:text-base">
                 Developing asymmetrical, high-performance SerDes Cores for

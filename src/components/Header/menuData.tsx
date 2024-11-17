@@ -14,7 +14,7 @@ const menuData: Menu[] = [
     submenu: [
       {
         id: 21,
-        title: "RF Beamformer",
+        title: "RF Beamformers",
         path: "/product-details",
         newTab: false,
       },

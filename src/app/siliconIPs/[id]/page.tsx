@@ -1,27 +1,27 @@
 "use client";
 
-import GetDocumentBox from "@/components/Products/GetDocumentBox";
+import GetDocumentBox from "@/components/SiliconIPs/GetDocumentBox";
 import RootLayout from "@/app/defaultLayout/layout";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Product } from "@/types/product";
+import { SiliconIP } from "@/types/siliconIP";
 
-const ProductDetailsPage = () => {
+const SiliconIPDetailsPage = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState<Product | null>(null);
+  const [siliconIP, setSiliconIP] = useState<SiliconIP | null>(null);
 
   useEffect(() => {
-    fetchProduct();
+    fetchSiliconIP();
   }, [id]);
 
-  const fetchProduct = async () => {
-    const response = await fetch(`/api/products/${id}`);
+  const fetchSiliconIP = async () => {
+    const response = await fetch(`/api/siliconIPs/${id}`);
 
     if (response.ok) {
       const data = await response.json();
-      setProduct(data.product);
+      setSiliconIP(data.siliconIP);
     } else {
-      console.error("Error fetching product");
+      console.error("Error fetching siliconIP");
     }
   };
 
@@ -29,18 +29,20 @@ const ProductDetailsPage = () => {
     <RootLayout>
       <section className="pb-8 pt-[120px]">
         <div className="container">
-          {product && (
+          {siliconIP && (
             <div className="-mx-4 flex flex-wrap justify-center">
               <div className="w-full px-4 lg:w-8/12">
                 <div>
                   <h2 className="sm:2xl mb-2 text-2xl font-semibold text-dark dark:text-white sm:mb-4">
-                    {product.name}
+                    {siliconIP.name}
                   </h2>
-                  <div dangerouslySetInnerHTML={{ __html: product.details }} />
+                  <div
+                    dangerouslySetInnerHTML={{ __html: siliconIP.details }}
+                  />
                 </div>
               </div>
               <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
-                <GetDocumentBox product={product} />
+                <GetDocumentBox siliconIP={siliconIP} />
               </div>
             </div>
           )}
@@ -50,4 +52,4 @@ const ProductDetailsPage = () => {
   );
 };
 
-export default ProductDetailsPage;
+export default SiliconIPDetailsPage;
