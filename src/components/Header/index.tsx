@@ -141,10 +141,7 @@ const Header = () => {
                     </li>
 
                     <li className="group relative">
-                      <p
-                        onClick={() => handleSubmenu(0)} // Adjust if needed for toggling
-                        className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
-                      >
+                      <p className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6">
                         Product
                         <span className="pl-3">
                           <svg width="25" height="24" viewBox="0 0 25 24">
@@ -173,10 +170,7 @@ const Header = () => {
                     </li>
 
                     <li className="group relative">
-                      <p
-                        onClick={() => handleSubmenu(0)} // Adjust if needed for toggling
-                        className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
-                      >
+                      <p className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6">
                         Silicon IP
                         <span className="pl-3">
                           <svg width="25" height="24" viewBox="0 0 25 24">
@@ -205,10 +199,7 @@ const Header = () => {
                     </li>
 
                     <li className="group relative">
-                      <p
-                        onClick={() => handleSubmenu(0)} // Adjust if needed for toggling
-                        className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
-                      >
+                      <p className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6">
                         Company
                         <span className="pl-3">
                           <svg width="25" height="24" viewBox="0 0 25 24">
