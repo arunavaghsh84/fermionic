@@ -9,7 +9,8 @@ import { useEffect, useState } from "react";
 const Header = () => {
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [menuItems, setMenuItems] = useState();
+  const [productMenuItems, setProductMenuItems] = useState([]);
+  const [siliconMenuItems, setSiliconMenuItems] = useState([]);
 
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
@@ -40,54 +41,54 @@ const Header = () => {
 
   const usePathName = usePathname();
 
-  // useEffect(() => {
-  //   fetchProducts();
-  //   fetchSiliconIPs();
-  // }, []);
+  useEffect(() => {
+    fetchProducts();
+    fetchSiliconIPs();
+  }, []);
 
-  // const fetchProducts = async () => {
-  //   const res = await fetch("/api/products");
+  const fetchProducts = async () => {
+    const res = await fetch("/api/products");
 
-  //   if (res.ok) {
-  //     const data = await res.json();
+    if (res.ok) {
+      const data = await res.json();
+      
+      // const menu = menuItems.find((item) => item.id === 2);
+      // menu.submenu = data.map(({ _id, name }) => {
+      //   return {
+      //     id: _id,
+      //     title: name,
+      //     path: `/products/${_id}`,
+      //     newTab: false,
+      //   };
+      // });
 
-  //     const menu = menuItems.find((item) => item.id === 2);
-  //     menu.submenu = data.map(({ _id, name }) => {
-  //       return {
-  //         id: _id,
-  //         title: name,
-  //         path: `/products/${_id}`,
-  //         newTab: false,
-  //       };
-  //     });
+      setProductMenuItems(data);
+    } else {
+      console.error("Error fetching products");
+    }
+  };
 
-  //     setMenuItems(menuItems);
-  //   } else {
-  //     console.error("Error fetching products");
-  //   }
-  // };
+  const fetchSiliconIPs = async () => {
+    const res = await fetch("/api/siliconIPs");
 
-  // const fetchSiliconIPs = async () => {
-  //   const res = await fetch("/api/siliconIPs");
+    if (res.ok) {
+      const data = await res.json();
 
-  //   if (res.ok) {
-  //     const data = await res.json();
+      // const menu = menuItems.find((item) => item.id === 3);
+      // menu.submenu = data.map(({ _id, name }) => {
+      //   return {
+      //     id: _id,
+      //     title: name,
+      //     path: `/siliconIPs/${_id}`,
+      //     newTab: false,
+      //   };
+      // });
 
-  //     const menu = menuItems.find((item) => item.id === 3);
-  //     menu.submenu = data.map(({ _id, name }) => {
-  //       return {
-  //         id: _id,
-  //         title: name,
-  //         path: `/siliconIPs/${_id}`,
-  //         newTab: false,
-  //       };
-  //     });
-
-  //     setMenuItems(menuItems);
-  //   } else {
-  //     console.error("Error fetching products");
-  //   }
-  // };
+      setSiliconMenuItems(data);
+    } else {
+      console.error("Error fetching products");
+    }
+  };
 
   return (
     <>
@@ -153,7 +154,9 @@ const Header = () => {
                       <Link
                         href="/"
                         className={`flex py-2 text-sm lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
-                          usePathName === "/" ? "text-primary dark:text-white" : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                          usePathName === "/"
+                            ? "text-primary dark:text-white"
+                            : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
                         }`}
                       >
                         Home
@@ -162,7 +165,6 @@ const Header = () => {
 
                     <li className="group relative">
                       <p
-                        onClick={() => handleSubmenu(0)} // Adjust if needed for toggling
                         className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
                       >
                         Product
@@ -177,25 +179,23 @@ const Header = () => {
                           </svg>
                         </span>
                       </p>
-                      <div className={`submenu relative left-0 top-full rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full hidden`}>
-                        <Link href="/product-details" className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3">
-                          RF Beamformers
-                        </Link>
-                        <Link href="/product-details" className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3">
-                          RF Front End Modules
-                        </Link>
-                        <Link href="/product-details" className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3">
-                          Power Management
-                        </Link>
-                        <Link href="/product-details" className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3">
-                          Microcontrollers
-                        </Link>
+                      <div
+                        className={`submenu relative left-0 top-full hidden rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full`}
+                      >
+                        {(productMenuItems).map((menu) => (
+                          <Link
+                            key={menu._id}
+                            href={`/products/${menu._id}`}
+                            className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
+                          >
+                            {menu.name}
+                          </Link>
+                        ))}
                       </div>
                     </li>
 
                     <li className="group relative">
                       <p
-                        onClick={() => handleSubmenu(0)} // Adjust if needed for toggling
                         className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
                       >
                         Silicon IP
@@ -210,22 +210,23 @@ const Header = () => {
                           </svg>
                         </span>
                       </p>
-                      <div className={`submenu relative left-0 top-full rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full hidden`}>
-                        <Link href="/product-details" className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3">
-                          Multi-Protocol SERDES
-                        </Link>
-                        <Link href="/product-details" className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3">
-                          Phase Locked Loop
-                        </Link>
-                        <Link href="/product-details" className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3">
-                          Miscellaneous
-                        </Link>
+                      <div
+                        className={`submenu relative left-0 top-full hidden rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full`}
+                      >
+                        {(siliconMenuItems).map((menu) => (
+                          <Link
+                            key={menu._id}
+                            href={`/siliconIPs/${menu._id}`}
+                            className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
+                          >
+                            {menu.name}
+                          </Link>
+                        ))}
                       </div>
                     </li>
 
                     <li className="group relative">
                       <p
-                        onClick={() => handleSubmenu(0)} // Adjust if needed for toggling
                         className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
                       >
                         Company
@@ -240,24 +241,37 @@ const Header = () => {
                           </svg>
                         </span>
                       </p>
-                      <div className={`submenu relative left-0 top-full rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full hidden`}>
-                        <Link href="/about" className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3">
+                      <div
+                        className={`submenu relative left-0 top-full hidden rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full`}
+                      >
+                        <Link
+                          href="/about"
+                          className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
+                        >
                           About Us
                         </Link>
-                        <Link href="/leadership" className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3">
+                        <Link
+                          href="/leadership"
+                          className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
+                        >
                           Leadership
                         </Link>
-                        <Link href="/career" className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3">
+                        <Link
+                          href="/career"
+                          className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
+                        >
                           Career
                         </Link>
                       </div>
                     </li>
-                    
+
                     <li className="group relative">
                       <Link
                         href="/blogs"
                         className={`flex py-2 text-sm lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
-                          usePathName === "/blogs" ? "text-primary dark:text-white" : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                          usePathName === "/blogs"
+                            ? "text-primary dark:text-white"
+                            : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
                         }`}
                       >
                         Blogs
@@ -268,14 +282,15 @@ const Header = () => {
                       <Link
                         href="/contact"
                         className={`flex py-2 text-sm lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
-                          usePathName === "/contact" ? "text-primary dark:text-white" : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                          usePathName === "/contact"
+                            ? "text-primary dark:text-white"
+                            : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
                         }`}
                       >
                         Contact Us
                       </Link>
                     </li>
                   </ul>
-
                 </nav>
               </div>
             </div>
