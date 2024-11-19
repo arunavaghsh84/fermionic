@@ -28,6 +28,7 @@ const Hero: React.FC = () => {
             className="h-full w-full object-cover"
             width={1024}
             height={425}
+            priority={true}
           />
           <div className="container">
             <div className="absolute top-12 z-10 max-w-[320px] pl-10 pt-16 sm:max-w-[500px] md:mt-12">

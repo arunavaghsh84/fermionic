@@ -3,14 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-// import ThemeToggler from "./ThemeToggler";
-// import menuData from "./menuData";
 
 const Header = () => {
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [productMenuItems, setProductMenuItems] = useState([]);
-  const [siliconMenuItems, setSiliconMenuItems] = useState([]);
+
+  const [products, setProducts] = useState([]);
+  const [siliconIPs, setSiliconIPs] = useState([]);
 
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
@@ -51,18 +50,7 @@ const Header = () => {
 
     if (res.ok) {
       const data = await res.json();
-      
-      // const menu = menuItems.find((item) => item.id === 2);
-      // menu.submenu = data.map(({ _id, name }) => {
-      //   return {
-      //     id: _id,
-      //     title: name,
-      //     path: `/products/${_id}`,
-      //     newTab: false,
-      //   };
-      // });
-
-      setProductMenuItems(data);
+      setProducts(data);
     } else {
       console.error("Error fetching products");
     }
@@ -73,20 +61,9 @@ const Header = () => {
 
     if (res.ok) {
       const data = await res.json();
-
-      // const menu = menuItems.find((item) => item.id === 3);
-      // menu.submenu = data.map(({ _id, name }) => {
-      //   return {
-      //     id: _id,
-      //     title: name,
-      //     path: `/siliconIPs/${_id}`,
-      //     newTab: false,
-      //   };
-      // });
-
-      setSiliconMenuItems(data);
+      setSiliconIPs(data);
     } else {
-      console.error("Error fetching products");
+      console.error("Error fetching siliconIPs");
     }
   };
 
@@ -164,9 +141,7 @@ const Header = () => {
                     </li>
 
                     <li className="group relative">
-                      <p
-                        className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
-                      >
+                      <p className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6">
                         Product
                         <span className="pl-3">
                           <svg width="25" height="24" viewBox="0 0 25 24">
@@ -182,22 +157,20 @@ const Header = () => {
                       <div
                         className={`submenu relative left-0 top-full hidden rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full`}
                       >
-                        {(productMenuItems).map((menu) => (
+                        {products.map(({ _id, name }) => (
                           <Link
-                            key={menu._id}
-                            href={`/products/${menu._id}`}
+                            key={_id}
+                            href={`/products/${_id}`}
                             className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
                           >
-                            {menu.name}
+                            {name}
                           </Link>
                         ))}
                       </div>
                     </li>
 
                     <li className="group relative">
-                      <p
-                        className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
-                      >
+                      <p className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6">
                         Silicon IP
                         <span className="pl-3">
                           <svg width="25" height="24" viewBox="0 0 25 24">
@@ -213,22 +186,20 @@ const Header = () => {
                       <div
                         className={`submenu relative left-0 top-full hidden rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full`}
                       >
-                        {(siliconMenuItems).map((menu) => (
+                        {siliconIPs.map(({ _id, name }) => (
                           <Link
-                            key={menu._id}
-                            href={`/siliconIPs/${menu._id}`}
+                            key={_id}
+                            href={`/siliconIPs/${_id}`}
                             className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
                           >
-                            {menu.name}
+                            {name}
                           </Link>
                         ))}
                       </div>
                     </li>
 
                     <li className="group relative">
-                      <p
-                        className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
-                      >
+                      <p className="flex cursor-pointer items-center justify-between py-2 text-sm text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6">
                         Company
                         <span className="pl-3">
                           <svg width="25" height="24" viewBox="0 0 25 24">
