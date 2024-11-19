@@ -149,7 +149,7 @@ const Header = () => {
                   }`}
                 >
                   <ul className="block lg:flex lg:space-x-8">
-                    {menuData.map((menuItem, index) => (
+                    {menuItems.map((menuItem, index) => (
                       <li key={index} className="group relative">
                         {menuItem.path ? (
                           <Link
