@@ -3,7 +3,7 @@ type Author = {
 };
 
 export type Blog = {
-  _id: number;
+  _id: string;
   title: string;
   shortDescription: string;
   content: string;
