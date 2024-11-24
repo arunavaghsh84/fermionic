@@ -1,18 +1,37 @@
 import connectMongo from "../../lib/mongodb";
 import Blog from "../../models/Blog";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import User from "@/app/models/User";
+import randomstring from "randomstring";
+import path from "path";
+import fs from "fs";
 
 // POST: Create a new blog
 export async function POST(request: Request) {
   await connectMongo();
 
-  const body = await request.json();
-  const { createdBy, title, shortDescription, content, image } = body;
+  const formData = await request.formData();
 
-  if (!title || !shortDescription || !content || !image) {
+  const image = formData.get("image") as File | null;
+  const title = formData.get("title") as string;
+  const shortDescription = formData.get("shortDescription") as string;
+  const content = formData.get("content") as string;
+  const createdBy = formData.get("createdBy") as string;
+
+  if (!title || !shortDescription || !content || !createdBy || !image) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
+
+  // Store on server
+  const buffer = Buffer.from(await image.arrayBuffer());
+  const imagePath = path.join(
+    "/uploads/blogs",
+    `${randomstring.generate()}.${image.name.split(".").pop()}`,
+  );
+
+  await fs.writeFile(`public${imagePath}`, buffer, (err) => {
+    console.log(err);
+  });
 
   try {
     const blog = await Blog.create({
@@ -20,7 +39,7 @@ export async function POST(request: Request) {
       title,
       shortDescription,
       content,
-      image,
+      image: imagePath,
     });
 
     return NextResponse.json({ blog }, { status: 201 });
@@ -42,45 +61,6 @@ export async function GET() {
     const blogs = await Blog.find({}).populate("createdBy");
 
     return NextResponse.json(blogs, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
-}
-
-// PUT: Update a blog (use ID as a query param)
-export async function PUT(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
-  const id = searchParams.get("id");
-
-  await connectMongo();
-
-  const body = await request.json();
-  const { title, shortDescription, content, image } = body;
-
-  try {
-    const blog = await Blog.findByIdAndUpdate(
-      id,
-      { title, shortDescription, content, image },
-      { new: true },
-    );
-
-    return NextResponse.json({ blog });
-  } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
-}
-
-// DELETE: Delete a blog (use ID as a query param)
-export async function DELETE(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
-  const id = searchParams.get("id");
-
-  await connectMongo();
-
-  try {
-    await Blog.findByIdAndDelete(id);
-
-    return NextResponse.json(null);
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

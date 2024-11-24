@@ -1,47 +1,84 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Tooltip } from "@nextui-org/react";
-
-const data = [
-  { id: 1, name: "Item One", description: "This is item one Blog." },
-  { id: 2, name: "Item Two", description: "This is item two Blog." },
-  // Add more items as needed
-];
+import { Blog } from "@/types/blog";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const BlogList = ({ handleBlogForm }) => {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  const fetchBlogs = async () => {
+    const res = await fetch("/api/blogs");
+
+    if (res.ok) {
+      const data = await res.json();
+      setBlogs(data);
+    } else {
+      console.error("Error fetching blogs");
+    }
+  };
+
+  const handleDelete = async (id: string) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const response = await fetch(`/api/blogs/${id}`, {
+          method: "DELETE",
+        });
+
+        if (response.ok) {
+          toast.success("Blog deleted successfully!");
+          fetchBlogs();
+        }
+      }
+    });
+  };
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full rounded-lg border border-gray-200 bg-white">
         <thead>
           <tr>
             <th className="border-b border-gray-200 bg-gray-50 px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700">
-              ID
+              Sl No.
             </th>
             <th className="border-b border-gray-200 bg-gray-50 px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700">
-              Name
+              Title
             </th>
             <th className="border-b border-gray-200 bg-gray-50 px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700">
-              Description
+              Short Description
             </th>
             <th className="border-b border-gray-200 bg-gray-50 px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700">
-              Action
+              Actions
             </th>
           </tr>
         </thead>
         <tbody>
-          {data.map((item) => (
-            <tr key={item.id} className="hover:bg-gray-100">
+          {blogs.map(({ _id, title, shortDescription }, index) => (
+            <tr key={_id} className="hover:bg-gray-100">
               <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                {item.id}
+                {index + 1}
               </td>
               <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
-                {item.name}
+                {title}
               </td>
               <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
-                {item.description}
+                {shortDescription}
               </td>
               <td className="flex space-x-4 whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-500">
                 <button
-                  onClick={handleBlogForm}
+                  onClick={() => handleBlogForm(blogs[index])}
                   className="text-blue-600 hover:text-blue-800"
                 >
                   <Tooltip
@@ -66,7 +103,10 @@ const BlogList = ({ handleBlogForm }) => {
                     </svg>
                   </Tooltip>
                 </button>
-                <button className="text-red-600 hover:text-red-800">
+                <button
+                  onClick={() => handleDelete(_id)}
+                  className="text-red-600 hover:text-red-800"
+                >
                   <Tooltip
                     showArrow={true}
                     content="Delete"
