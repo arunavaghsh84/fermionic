@@ -1,12 +1,12 @@
 interface IFile {
-  _id: number;
+  _id: string;
   name: string;
   url: string;
   type: string;
 }
 
 export type SiliconIP = {
-  _id: number;
+  _id: string;
   name: string;
   details: string;
   files: IFile[];
