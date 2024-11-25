@@ -37,10 +37,10 @@ const AdminSidebar: React.FC = () => {
       <ul className="flex flex-col px-6 py-8 text-sm text-white">
         <li
           className={`flex ${
-            currentPath === "/admin/product" ? "bg-slate-600" : ""
+            currentPath === "/admin/products" ? "bg-slate-600" : ""
           }`}
         >
-          <Link href="/admin/product" className="w-full px-4 py-3">
+          <Link href="/admin/products" className="w-full px-4 py-3">
             Product Manage
           </Link>
         </li>
