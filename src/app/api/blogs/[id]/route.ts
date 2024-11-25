@@ -84,7 +84,7 @@ export async function PUT(request: NextRequest, { params }) {
 }
 
 // DELETE: Delete a blog (use ID as a query param)
-export async function DELETE(req: NextRequest, { params }) {
+export async function DELETE(_: NextRequest, { params }) {
   const { id } = params;
 
   await connectMongo();
