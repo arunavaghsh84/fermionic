@@ -46,10 +46,10 @@ const AdminSidebar: React.FC = () => {
         </li>
         <li
           className={`flex ${
-            currentPath === "/admin/silicon-ip" ? "bg-slate-600" : ""
+            currentPath === "/admin/silicon-ips" ? "bg-slate-600" : ""
           }`}
         >
-          <Link href="/admin/silicon-ip" className="w-full px-4 py-3">
+          <Link href="/admin/silicon-ips" className="w-full px-4 py-3">
             Silicon IP Manage
           </Link>
         </li>
