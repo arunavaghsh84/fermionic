@@ -62,6 +62,15 @@ const AdminSidebar: React.FC = () => {
             Blog Manage
           </Link>
         </li>
+        <li
+          className={`flex ${
+            currentPath === "/admin/add-user" ? "bg-slate-600" : ""
+          }`}
+        >
+          <Link href="/admin/add-user" className="w-full px-4 py-3">
+            Add User
+          </Link>
+        </li>
       </ul>
     </div>
   );
