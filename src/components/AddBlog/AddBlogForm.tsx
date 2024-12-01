@@ -119,7 +119,7 @@ const AddBlogForm = ({
         </div>
         <div className="mb-5 w-full px-4">
           <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-            Content
+            Full Description
           </label>
           <TinyEditor
             initialValue={initialData?.content || ""}
@@ -148,7 +148,7 @@ const AddBlogForm = ({
         <div className="w-1/2 px-4">
           <div className="mb-4">
             <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-              Image
+              Featured Image
             </label>
             <input
               type="file"

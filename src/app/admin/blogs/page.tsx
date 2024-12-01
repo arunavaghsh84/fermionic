@@ -25,7 +25,7 @@ const BlogManage = () => {
           onClick={() => handleBlogForm()}
           className="inline-block rounded-sm bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
         >
-          Add Blog
+          {BlogForm ? "Back" : "Add Blog"}
         </button>
       </div>
       {BlogForm ? (

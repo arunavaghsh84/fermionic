@@ -112,7 +112,7 @@ const AddSiliconIpForm = ({
         </div>
         <div className="mb-5 w-full px-4">
           <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-            Details
+            Silicon IP Details
           </label>
           <TinyEditor
             initialValue={initialData?.details || ""}
