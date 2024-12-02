@@ -22,6 +22,7 @@ const AddUserForm = ({
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
+  const [isSaving, setIsSaving] = useState(false);
 
   const isValidEmail = (email: string) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -48,6 +49,8 @@ const AddUserForm = ({
 
     if (!validateForm()) return;
 
+    setIsSaving(true);
+
     const formData = new FormData();
 
     formData.append("name", form.name);
@@ -68,6 +71,8 @@ const AddUserForm = ({
       const data = await response.json();
       toast.error(data.error);
     }
+
+    setIsSaving(false);
   };
 
   return (
@@ -116,8 +121,12 @@ const AddUserForm = ({
           </div>
         </div>
         <div className="flex w-full px-4">
-          <button className="inline-block rounded-sm bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark">
-            Save
+          <button
+            type="submit"
+            disabled={isSaving}
+            className="inline-block rounded-sm bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
+          >
+            {isSaving ? "Saving..." : "Save"}
           </button>
         </div>
       </div>
