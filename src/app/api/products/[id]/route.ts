@@ -1,9 +1,17 @@
 import connectMongo from "@/app/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 import Product from "@/app/models/Product";
+import cloudinary from "cloudinary";
 import { promises as fs } from "fs";
 import randomstring from "randomstring";
 import path from "path";
+
+// Configure Cloudinary
+cloudinary.v2.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 // GET: Get a product by ID
 export async function GET(_: NextRequest, { params }) {
@@ -46,7 +54,6 @@ export async function PUT(request: NextRequest, { params }) {
   const formData = await request.formData();
 
   const files = formData.getAll("newFiles") as File[];
-  console.log(files);
 
   const name = formData.get("name") as string;
   const shortDescription = formData.get("shortDescription") as string;
@@ -81,9 +88,20 @@ export async function PUT(request: NextRequest, { params }) {
 
         await fs.writeFile(`public${filePath}`, buffer);
 
+        // Upload to Cloudinary
+        const cloudinaryResponse = await cloudinary.v2.uploader.upload(
+          `public${filePath}`,
+          {
+            folder: "uploads/products",
+          },
+        );
+
+        // Cleanup local file after upload
+        await fs.unlink(`public${filePath}`);
+
         return {
           name: file.name,
-          url: filePath,
+          url: cloudinaryResponse.url,
           type: file.type,
         };
       }),
