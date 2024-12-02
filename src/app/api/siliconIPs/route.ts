@@ -2,9 +2,17 @@ import connectMongo from "../../lib/mongodb";
 import SiliconIP from "../../models/SiliconIP";
 import { NextResponse } from "next/server";
 import User from "@/app/models/User";
+import cloudinary from "cloudinary";
 import { promises as fs } from "fs";
 import randomstring from "randomstring";
 import path from "path";
+
+// Configure Cloudinary
+cloudinary.v2.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 // POST: Create a new siliconIP
 export async function POST(request: Request) {
@@ -12,7 +20,7 @@ export async function POST(request: Request) {
 
   const formData = await request.formData();
 
-  const files = formData.get("newFiles") as File | null;
+  const files = formData.getAll("newFiles") as File[];
   const name = formData.get("name") as string;
   const details = formData.get("details") as string;
   const isFeatured = formData.get("isFeatured") as string;
@@ -44,9 +52,20 @@ export async function POST(request: Request) {
 
         await fs.writeFile(`public${filePath}`, buffer);
 
+        // Upload to Cloudinary
+        const cloudinaryResponse = await cloudinary.v2.uploader.upload(
+          `public${filePath}`,
+          {
+            folder: "uploads/silicon-ips",
+          },
+        );
+
+        // Cleanup local file after upload
+        await fs.unlink(`public${filePath}`);
+
         return {
           name: file.name,
-          url: filePath,
+          url: cloudinaryResponse.url,
           type: file.type,
         };
       }),

@@ -28,6 +28,7 @@ const AddBlogForm = ({
 
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
+  const [saving, setSaving] = useState(false);
 
   const validateForm = () => {
     const newErrors: any = {};
@@ -46,6 +47,8 @@ const AddBlogForm = ({
     e.preventDefault();
 
     if (!validateForm()) return;
+
+    setSaving(true);
 
     const formData = new FormData();
 
@@ -68,6 +71,8 @@ const AddBlogForm = ({
       toast.success("Blog saved successfully!");
       handleBlogForm();
     }
+
+    setSaving(false);
   };
 
   return (
@@ -166,9 +171,10 @@ const AddBlogForm = ({
         <div className="flex w-full px-4">
           <button
             type="submit"
+            disabled={saving}
             className="inline-block rounded-sm bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
           >
-            Save
+            {saving ? "Saving..." : "Save"}
           </button>
         </div>
       </div>

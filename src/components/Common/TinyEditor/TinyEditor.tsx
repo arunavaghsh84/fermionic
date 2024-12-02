@@ -27,6 +27,23 @@ const TinyEditor: React.FC<TinyEditorProps> = ({
           "undo redo | formatselect | bold italic backcolor | \
           alignleft aligncenter alignright alignjustify | \
           bullist numlist outdent indent | removeformat | help",
+        automatic_uploads: true,
+        images_upload_handler: async (blobInfo: any) => {
+          const formData = new FormData();
+          formData.append("image", blobInfo.blob());
+
+          const response = await fetch("/api/images", {
+            method: "post",
+            body: formData,
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            return data.url;
+          }
+
+          return "";
+        },
       }}
       onEditorChange={onEditorChange}
     />

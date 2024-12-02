@@ -7,15 +7,16 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   await connectMongo();
 
-  const body = await request.json();
+  const formData = await request.formData();
 
-  const { email, password } = body;
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
 
   const user = await User.findOne({ email: email });
 
   if (!user) {
     return NextResponse.json(
-      { errMsg: "User does not exist", success: false },
+      { error: "Incorrect email or password", success: false },
       { status: 422 },
     );
   }
@@ -24,7 +25,7 @@ export async function POST(request: Request) {
 
   if (!match) {
     return NextResponse.json(
-      { errMsg: "Incorrect password", success: false },
+      { error: "Incorrect email or password", success: false },
       { status: 422 },
     );
   }

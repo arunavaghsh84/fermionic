@@ -1,9 +1,18 @@
+"use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const DropdownUser = () => {
+  const router = useRouter();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem(`${process.env.NEXT_PUBLIC_APP_NAME}-token`);
+    router.push("/admin/login");
+  };
 
   return (
     // <div onClick={() => setDropdownOpen(false)} className="relative">
@@ -52,13 +61,13 @@ const DropdownUser = () => {
       {/* <!-- Dropdown Start --> */}
       {dropdownOpen && (
         <div
-          className={`w-44 border-stroke dark:border-strokedark dark:bg-boxdark absolute right-0 mt-4 flex flex-col rounded-sm border bg-white shadow-default`}
+          className={`border-stroke dark:border-strokedark dark:bg-boxdark absolute right-0 mt-4 flex w-44 flex-col rounded-sm border bg-white shadow-default`}
         >
           <ul className="border-stroke py-7.5 dark:border-strokedark flex flex-col border-b">
             <li>
               <Link
                 href="/admin/profile"
-                className="flex px-5 py-3 items-center gap-2 text-sm duration-300 ease-in-out hover:text-primary hover:bg-slate-100"
+                className="flex items-center gap-2 px-5 py-3 text-sm duration-300 ease-in-out hover:bg-slate-100 hover:text-primary"
               >
                 <svg
                   className="fill-current"
@@ -81,9 +90,9 @@ const DropdownUser = () => {
               </Link>
             </li>
             <li>
-              <Link
-                href="/settings"
-                className="flex px-5 py-3 items-center gap-2 text-sm duration-300 ease-in-out hover:text-primary hover:bg-slate-100"
+              <button
+                onClick={() => handleLogout()}
+                className="flex w-full items-center gap-2 px-5 py-3 text-sm duration-300 ease-in-out hover:bg-slate-100 hover:text-primary"
               >
                 <svg
                   className="fill-current"
@@ -103,7 +112,7 @@ const DropdownUser = () => {
                   />
                 </svg>
                 Logout
-              </Link>
+              </button>
             </li>
           </ul>
         </div>

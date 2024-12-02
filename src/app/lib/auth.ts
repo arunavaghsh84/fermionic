@@ -2,7 +2,9 @@ import { JwtPayload } from "jsonwebtoken";
 import { jwtDecode } from "jwt-decode";
 
 export interface DecodedToken extends JwtPayload {
-  userId?: string;
+  _id: string;
+  name: string;
+  email: string;
 }
 
 export const decodeToken = (token: string): DecodedToken | null => {
