@@ -16,15 +16,15 @@ cloudinary.v2.config({
 export async function POST(request: Request) {
   await connectMongo();
 
-  const formData = await request.formData();
-
-  const image = formData.get("image") as File | null;
-
-  if (!image) {
-    return NextResponse.json({ error: "Missing fields" }, { status: 400 });
-  }
-
   try {
+    const formData = await request.formData();
+
+    const image = formData.get("image") as File | null;
+
+    if (!image) {
+      return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+    }
+
     // Store on server
     const buffer = Buffer.from(await image.arrayBuffer());
     const imagePath = path.join(
