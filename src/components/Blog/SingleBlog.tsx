@@ -28,7 +28,7 @@ const SingleBlog = () => {
   };
 
   return (
-    <section className="pb-[30px] pt-[60px]">
+    <section className="pb-[30px] pt-[60px] min-h-96">
       <div className="container">
         <div className="-mx-4 flex flex-wrap justify-center">
           {blogs.map(

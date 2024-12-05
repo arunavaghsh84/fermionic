@@ -27,7 +27,7 @@ const SiliconIPDetailsPage = () => {
 
   return (
     <RootLayout>
-      <section className="pb-8 pt-[120px]">
+      <section className="pb-8 pt-[120px] min-h-96">
         <div className="container">
           {siliconIP && (
             <div className="-mx-4 flex flex-wrap justify-center">

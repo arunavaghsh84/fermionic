@@ -64,12 +64,6 @@ const Career = () => {
             we create a company of high-performance innovators for a meaningful
             impact on the semiconductor IC and product design.
           </p>
-          {/* <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-            We have multiple openings for Analog designers, Layout Engineers,
-            Digital Designers, Silicon-Validation Engineers. <br />
-            Please contact us on{" "}
-            <span className="text-primary">careers@fermionic.design</span>
-          </h4> */}
         </div>
         <div className="flex">
           <div className="w-1/2">

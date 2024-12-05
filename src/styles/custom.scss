@@ -94,6 +94,23 @@
   opacity: 1;
 }
 
+.szh-accordion {
+  .szh-accordion__item-heading {
+    .szh-accordion__item-btn {
+      font-size: 17px;
+      color: #466e8f;
+      font-weight: 500;
+      background: #f2f5f8;
+      &.bg-slate-200 {
+        background: #fce9e4;
+      }
+      &:hover {
+        background: #fce9e4;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 767px) {
   .slick-slider {
     .slick-list {
