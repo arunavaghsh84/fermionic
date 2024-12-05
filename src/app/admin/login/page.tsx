@@ -22,10 +22,24 @@ const SigninPage = () => {
                 </h3>
                 <LoginForm />
                 <div className="mt-6 flex items-center justify-center gap-1 text-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-4 h-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    className="h-4 w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                    />
                   </svg>
-                  Back to <Link href="/" className="text-primary">Home</Link>
+                  Back to{" "}
+                  <Link href="/" className="text-primary">
+                    Home
+                  </Link>
                 </div>
               </div>
             </div>
