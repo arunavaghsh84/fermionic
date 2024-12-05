@@ -7,9 +7,7 @@ const blogData = [
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
     image: "/images/blog/blog-01.jpg",
-    createdBy: {
-      name: "Samuyl Joshi",
-    },
+    authorName: "Samuyl Joshi",
     createdAt: "12 Jan 2024",
   },
   {
@@ -18,9 +16,7 @@ const blogData = [
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
     image: "/images/blog/blog-02.jpg",
-    createdBy: {
-      name: "Musharof Chy",
-    },
+    authorName: "Musharof Chy",
     createdAt: "12 Jan 2024",
   },
   {
@@ -29,10 +25,9 @@ const blogData = [
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
     image: "/images/blog/blog-03.jpg",
-    createdBy: {
-      name: "Lethium Deo",
-    },
+    authorName: "Lethium Deo",
     createdAt: "12 Jan 2024",
   },
 ];
+
 export default blogData;

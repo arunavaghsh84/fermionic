@@ -2,17 +2,9 @@ import connectMongo from "../../lib/mongodb";
 import Blog from "../../models/Blog";
 import { NextResponse } from "next/server";
 import User from "@/app/models/User";
-import cloudinary from "cloudinary";
 import randomstring from "randomstring";
 import path from "path";
 import fs from "fs";
-
-// Configure Cloudinary
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
 
 // POST: Create a new blog
 export async function POST(request: Request) {
@@ -24,9 +16,9 @@ export async function POST(request: Request) {
   const title = formData.get("title") as string;
   const shortDescription = formData.get("shortDescription") as string;
   const content = formData.get("content") as string;
-  const createdBy = formData.get("createdBy") as string;
+  const authorName = formData.get("authorName") as string;
 
-  if (!title || !shortDescription || !content || !createdBy || !image) {
+  if (!title || !shortDescription || !content || !authorName || !image) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
@@ -41,26 +33,13 @@ export async function POST(request: Request) {
     console.log(err);
   });
 
-  // Upload to Cloudinary
-  const cloudinaryResponse = await cloudinary.v2.uploader.upload(
-    `public${imagePath}`,
-    {
-      folder: "uploads/blogs",
-    },
-  );
-
-  // Cleanup local file after upload
-  await fs.unlink(`public${imagePath}`, (err) => {
-    console.log(err);
-  });
-
   try {
     const blog = await Blog.create({
-      createdBy,
       title,
       shortDescription,
       content,
-      image: cloudinaryResponse.url,
+      image: imagePath,
+      authorName,
     });
 
     return NextResponse.json({ blog }, { status: 201 });
@@ -79,7 +58,7 @@ export async function GET() {
     // After understanding the error I will remove this
     User.find({}).limit(1);
 
-    const blogs = await Blog.find({}).populate("createdBy");
+    const blogs = await Blog.find({});
 
     return NextResponse.json(blogs, { status: 200 });
   } catch (error) {
