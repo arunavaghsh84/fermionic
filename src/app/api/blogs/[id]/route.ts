@@ -27,7 +27,7 @@ export async function GET(_: NextRequest, { params }) {
   }
 
   try {
-    const blog = await Blog.findById(id).populate("createdBy");
+    const blog = await Blog.findById(id);
 
     if (!blog) {
       return NextResponse.json(

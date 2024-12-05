@@ -24,9 +24,9 @@ export async function POST(request: Request) {
   const title = formData.get("title") as string;
   const shortDescription = formData.get("shortDescription") as string;
   const content = formData.get("content") as string;
-  const createdBy = formData.get("createdBy") as string;
+  const authorName = formData.get("authorName") as string;
 
-  if (!title || !shortDescription || !content || !createdBy || !image) {
+  if (!title || !shortDescription || !content || !authorName || !image) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
@@ -56,11 +56,11 @@ export async function POST(request: Request) {
 
   try {
     const blog = await Blog.create({
-      createdBy,
       title,
       shortDescription,
       content,
       image: cloudinaryResponse.url,
+      authorName,
     });
 
     return NextResponse.json({ blog }, { status: 201 });
@@ -79,7 +79,7 @@ export async function GET() {
     // After understanding the error I will remove this
     User.find({}).limit(1);
 
-    const blogs = await Blog.find({}).populate("createdBy");
+    const blogs = await Blog.find({});
 
     return NextResponse.json(blogs, { status: 200 });
   } catch (error) {
