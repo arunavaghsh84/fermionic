@@ -2,17 +2,9 @@ import connectMongo from "../../lib/mongodb";
 import Blog from "../../models/Blog";
 import { NextResponse } from "next/server";
 import User from "@/app/models/User";
-import cloudinary from "cloudinary";
 import randomstring from "randomstring";
 import path from "path";
 import fs from "fs";
-
-// Configure Cloudinary
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
 
 // POST: Create a new blog
 export async function POST(request: Request) {
@@ -41,25 +33,12 @@ export async function POST(request: Request) {
     console.log(err);
   });
 
-  // Upload to Cloudinary
-  const cloudinaryResponse = await cloudinary.v2.uploader.upload(
-    `public${imagePath}`,
-    {
-      folder: "uploads/blogs",
-    },
-  );
-
-  // Cleanup local file after upload
-  await fs.unlink(`public${imagePath}`, (err) => {
-    console.log(err);
-  });
-
   try {
     const blog = await Blog.create({
       title,
       shortDescription,
       content,
-      image: cloudinaryResponse.url,
+      image: imagePath,
       authorName,
     });
 

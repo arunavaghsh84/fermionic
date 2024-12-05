@@ -2,17 +2,9 @@ import connectMongo from "../../lib/mongodb";
 import Product from "../../models/Product";
 import { NextResponse } from "next/server";
 import User from "@/app/models/User";
-import cloudinary from "cloudinary";
 import { promises as fs } from "fs";
 import randomstring from "randomstring";
 import path from "path";
-
-// Configure Cloudinary
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
 
 // POST: Create a new product
 export async function POST(request: Request) {
@@ -54,20 +46,9 @@ export async function POST(request: Request) {
 
         await fs.writeFile(`public${filePath}`, buffer);
 
-        // Upload to Cloudinary
-        const cloudinaryResponse = await cloudinary.v2.uploader.upload(
-          `public${filePath}`,
-          {
-            folder: "uploads/products",
-          },
-        );
-
-        // Cleanup local file after upload
-        await fs.unlink(`public${filePath}`);
-
         return {
           name: file.name,
-          url: cloudinaryResponse.url,
+          url: filePath,
           type: file.type,
         };
       }),
