@@ -32,7 +32,7 @@ const Products = () => {
 
   return (
     <>
-      <section id="Products" className="py-6 lg:py-10">
+      <section id="Products" className="py-6 lg:py-10 min-h-96">
         <div className="container">
           {currentPath === "/" && (
             <SectionTitle

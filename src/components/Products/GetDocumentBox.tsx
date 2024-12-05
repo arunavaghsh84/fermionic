@@ -160,7 +160,7 @@ const GetDocumentBox = ({ product }: { product: Product }) => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter your full name"
-              className="border-stroke w-full rounded-lg border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+              className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
             />
             {errors.name && (
               <p className="text-sm text-red-500">{errors.name}</p>
@@ -173,7 +173,7 @@ const GetDocumentBox = ({ product }: { product: Product }) => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
-              className="border-stroke w-full rounded-lg border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+              className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
             />
             {errors.email && (
               <p className="text-sm text-red-500">{errors.email}</p>
@@ -188,7 +188,7 @@ const GetDocumentBox = ({ product }: { product: Product }) => {
           )}
           <button
             disabled={isSubmitting}
-            className="my-4 w-full rounded-lg bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
+            className="my-4 w-full rounded-sm bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
           >
             {isSubmitting ? "Sending..." : "Contact Us"}
           </button>

@@ -47,7 +47,7 @@ const UserList = ({ handleUserForm }) => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full rounded-lg border border-gray-200 bg-white">
+      <table className="min-w-full rounded-sm border border-gray-200 bg-white">
         <thead>
           <tr>
             <th className="border-b border-gray-200 bg-gray-50 px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-700">
