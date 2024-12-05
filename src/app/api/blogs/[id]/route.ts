@@ -57,8 +57,9 @@ export async function PUT(request: NextRequest, { params }) {
   const title = formData.get("title") as string;
   const shortDescription = formData.get("shortDescription") as string;
   const content = formData.get("content") as string;
+  const authorName = formData.get("authorName") as string;
 
-  if (!title || !shortDescription || !content) {
+  if (!title || !shortDescription || !content || !authorName) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
@@ -92,12 +93,15 @@ export async function PUT(request: NextRequest, { params }) {
     imagePath = cloudinaryResponse.url;
   }
 
+  console.log(authorName);
+
   try {
     const blog = await Blog.findByIdAndUpdate(id, {
       title,
       shortDescription,
       content,
       image: imagePath,
+      authorName,
     });
 
     return NextResponse.json({ blog });
