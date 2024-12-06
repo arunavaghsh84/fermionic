@@ -205,8 +205,8 @@ const Contact = () => {
                       )}
                     </div>
                   </div>
-                  <div className="flex w-full items-center justify-end gap-4">
-                    <div className="w-1/2 px-4">
+                  <div className="sm:flex w-full items-center justify-end gap-4">
+                    <div className="sm:w-1/2 px-4">
                       {/* Google reCAPTCHA */}
                       <ReCAPTCHA
                         sitekey={
@@ -220,7 +220,7 @@ const Contact = () => {
                         </p>
                       )}
                     </div>
-                    <div className="w-1/2 px-4 text-end">
+                    <div className="sm:w-1/2 px-4 text-center sm:text-end mt-4 sm:mt-0">
                       <button
                         disabled={isSubmitting}
                         className="inline-block rounded-sm bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"

@@ -57,6 +57,19 @@
   margin-bottom: 20px;
 }
 
+.sidebar_recaptcha {
+  > div {
+    > div {
+      > div {
+        width: 100% !important;
+        iframe {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+}
+
 .react-tabs__tab-list {
   display: flex;
   gap: 20px;
