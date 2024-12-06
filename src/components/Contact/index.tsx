@@ -90,7 +90,7 @@ const Contact = () => {
     <section id="contact" className="overflow-hidden py-4 md:py-6 lg:py-8">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4 lg:w-7/12 xl:w-7/12">
+          <div className="w-full px-4 lg:w-8/12 xl:w-8/12">
             <div className="mb-12 rounded-sm bg-white p-6 shadow-three dark:bg-gray-dark sm:p-[55px] lg:mb-5 lg:p-8">
               <h2 className="sm:2xl mb-3 text-xl font-semibold text-dark dark:text-white md:text-3xl">
                 Get In Touch
@@ -233,7 +233,7 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          <div className="w-full px-4 lg:w-5/12 xl:w-5/12">
+          <div className="w-full px-4 lg:w-4/12 xl:w-4/12">
             <AddressBox />
           </div>
         </div>

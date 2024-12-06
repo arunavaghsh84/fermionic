@@ -20,9 +20,8 @@ const AddressBox = () => {
         Main Office Address
       </h3>
       <p className="mb-3 border-b border-body-color border-opacity-25 pb-3 text-sm leading-relaxed text-black dark:border-white dark:border-opacity-25">
-        FermionIC Design Private Limited GVR Vision, 268, 3rd Floor, AECS Layout
-        <br />- A Block, Marathahalli, Bengaluru, Karnataka 560037,India
-        <br />- A Block, Marathahalli, Bengaluru, Karnataka 560037,India
+        FermionIC Design Private Limited GVR Vision, 268, 3rd Floor, AECS <br />
+        Layout - A Block, Marathahalli, Bengaluru, Karnataka 560037,India
       </p>
 
       <h3 className="mb-2 text-lg font-semibold leading-tight text-dark dark:text-white">
