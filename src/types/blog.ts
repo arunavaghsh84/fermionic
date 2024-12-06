@@ -8,6 +8,6 @@ export type Blog = {
   shortDescription: string;
   content: string;
   image: string;
-  createdBy: Author;
+  authorName: string;
   createdAt: string;
 };

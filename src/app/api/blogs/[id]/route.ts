@@ -1,17 +1,9 @@
 import connectMongo from "@/app/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 import Blog from "@/app/models/Blog";
-import cloudinary from "cloudinary";
 import randomstring from "randomstring";
 import path from "path";
 import fs from "fs";
-
-// Configure Cloudinary
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
 
 // GET: Get a blog by ID
 export async function GET(_: NextRequest, { params }) {
@@ -27,7 +19,7 @@ export async function GET(_: NextRequest, { params }) {
   }
 
   try {
-    const blog = await Blog.findById(id).populate("createdBy");
+    const blog = await Blog.findById(id);
 
     if (!blog) {
       return NextResponse.json(
@@ -57,8 +49,9 @@ export async function PUT(request: NextRequest, { params }) {
   const title = formData.get("title") as string;
   const shortDescription = formData.get("shortDescription") as string;
   const content = formData.get("content") as string;
+  const authorName = formData.get("authorName") as string;
 
-  if (!title || !shortDescription || !content) {
+  if (!title || !shortDescription || !content || !authorName) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
@@ -75,21 +68,6 @@ export async function PUT(request: NextRequest, { params }) {
     await fs.writeFile(`public${imagePath}`, buffer, (err) => {
       console.log(err);
     });
-
-    // Upload to Cloudinary
-    const cloudinaryResponse = await cloudinary.v2.uploader.upload(
-      `public${imagePath}`,
-      {
-        folder: "uploads/blogs",
-      },
-    );
-
-    // Cleanup local file after upload
-    await fs.unlink(`public${imagePath}`, (err) => {
-      console.log(err);
-    });
-
-    imagePath = cloudinaryResponse.url;
   }
 
   try {
@@ -98,6 +76,7 @@ export async function PUT(request: NextRequest, { params }) {
       shortDescription,
       content,
       image: imagePath,
+      authorName,
     });
 
     return NextResponse.json({ blog });
