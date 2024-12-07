@@ -65,8 +65,8 @@ const Career = () => {
             impact on the semiconductor IC and product design.
           </p>
         </div>
-        <div className="flex">
-          <div className="w-1/2">
+        <div className="flex flex-col md:flex-row">
+          <div className="md:w-1/2">
             <Accordion transition transitionTimeout={200} className="text-sm">
               <AccordionItem
                 header="Senior Manager / Principal Engineer Silicon Validation"
@@ -205,7 +205,7 @@ const Career = () => {
               </AccordionItem>
             </Accordion>
           </div>
-          <div className="w-1/2">
+          <div className="md:w-1/2 hidden md:block">
             <Image
               src="/images/career/we-are-hiring-.jpg"
               alt="career-image"

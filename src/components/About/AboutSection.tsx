@@ -17,7 +17,7 @@ const AboutSection = () => {
   );
 
   return (
-    <section id="leadership" className="pt-6 md:pt-20 lg:pt-8">
+    <section className="pt-6 md:pt-8 lg:pt-8">
       <div className="container">
         <div className="border-b border-body-color/[.15] pb-6 dark:border-white/[.15] md:pb-8 lg:pb-10">
           <div className="-mx-4 flex flex-wrap">

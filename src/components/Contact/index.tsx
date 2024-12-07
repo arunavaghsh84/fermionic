@@ -90,7 +90,7 @@ const Contact = () => {
     <section id="contact" className="overflow-hidden py-4 md:py-6 lg:py-8">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4 lg:w-7/12 xl:w-7/12">
+          <div className="w-full px-4 lg:w-8/12 xl:w-8/12">
             <div className="mb-12 rounded-sm bg-white p-6 shadow-three dark:bg-gray-dark sm:p-[55px] lg:mb-5 lg:p-8">
               <h2 className="sm:2xl mb-3 text-xl font-semibold text-dark dark:text-white md:text-3xl">
                 Get In Touch
@@ -196,7 +196,7 @@ const Contact = () => {
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        rows={2}
+                        rows={5}
                         placeholder="Enter your Message"
                         className="border-stroke w-full resize-none rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
                       ></textarea>
@@ -205,8 +205,8 @@ const Contact = () => {
                       )}
                     </div>
                   </div>
-                  <div className="flex w-full items-center justify-end gap-4">
-                    <div className="w-1/2 px-4">
+                  <div className="w-full items-center justify-end gap-4 sm:flex">
+                    <div className="px-4 sm:w-1/2">
                       {/* Google reCAPTCHA */}
                       <ReCAPTCHA
                         sitekey={
@@ -220,7 +220,7 @@ const Contact = () => {
                         </p>
                       )}
                     </div>
-                    <div className="w-1/2 px-4 text-end">
+                    <div className="mt-4 px-4 text-center sm:mt-0 sm:w-1/2 sm:text-end">
                       <button
                         disabled={isSubmitting}
                         className="inline-block rounded-sm bg-primary px-8 py-3 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
@@ -233,7 +233,7 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          <div className="w-full px-4 lg:w-5/12 xl:w-5/12">
+          <div className="w-full px-4 lg:w-4/12 xl:w-4/12">
             <AddressBox />
           </div>
         </div>

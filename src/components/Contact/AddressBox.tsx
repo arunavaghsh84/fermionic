@@ -12,16 +12,18 @@ const AddressBox = () => {
         src="https://www.google.com/maps/d/u/0/embed?mid=149ZLBk-i3c0Gw1-tnrYEAgFKlFFSLCU&ehbc=2E312F&noprof=1"
         height="240"
         loading="lazy"
+        style={{ border: 0 }}
       ></iframe>
-      <h3 className="mb-2 text-xl font-semibold leading-tight text-dark dark:text-white">
+
+      <h3 className="mb-2 text-lg font-semibold leading-tight text-dark dark:text-white">
         Main Office Address
       </h3>
       <p className="mb-3 border-b border-body-color border-opacity-25 pb-3 text-sm leading-relaxed text-black dark:border-white dark:border-opacity-25">
-        FermionIC Design Private Limited GVR Vision, 268, 3rd Floor, AECS Layout
-        <br />- A Block, Marathahalli, Bengaluru, Karnataka 560037,India
+        FermionIC Design Private Limited GVR Vision, 268, 3rd Floor, AECS <br />
+        Layout - A Block, Marathahalli, Bengaluru, Karnataka 560037,India
       </p>
 
-      <h3 className="mb-2 text-xl font-semibold leading-tight text-dark dark:text-white">
+      <h3 className="mb-2 text-lg font-semibold leading-tight text-dark dark:text-white">
         Sales Office Address
       </h3>
       <p className="text-sm leading-relaxed text-black dark:border-white dark:border-opacity-25">
