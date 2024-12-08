@@ -28,11 +28,18 @@ const SingleBlog = () => {
   };
 
   return (
-    <section className="pb-[30px] pt-[60px]">
+    <section className="pb-[30px] pt-[60px] min-h-96">
       <div className="container">
         <div className="-mx-4 flex flex-wrap justify-center">
           {blogs.map(
-            ({ _id, title, image, shortDescription, createdBy, createdAt }) => (
+            ({
+              _id,
+              title,
+              image,
+              shortDescription,
+              authorName,
+              createdAt,
+            }) => (
               <div
                 key={_id}
                 className="mb-8 w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
@@ -58,7 +65,7 @@ const SingleBlog = () => {
                     </p>
                     <div className="flex items-center justify-between">
                       <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
-                        By {createdBy.name}
+                        By {authorName}
                       </h4>
                       <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
                         <span className="mr-3 flex gap-2">

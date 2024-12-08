@@ -1,17 +1,9 @@
 import connectMongo from "@/app/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 import SiliconIP from "@/app/models/SiliconIP";
-import cloudinary from "cloudinary";
 import { promises as fs } from "fs";
 import randomstring from "randomstring";
 import path from "path";
-
-// Configure Cloudinary
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
 
 // GET: Get a siliconIP by ID
 export async function GET(_: NextRequest, { params }) {
@@ -86,20 +78,9 @@ export async function PUT(request: NextRequest, { params }) {
 
         await fs.writeFile(`public${filePath}`, buffer);
 
-        // Upload to Cloudinary
-        const cloudinaryResponse = await cloudinary.v2.uploader.upload(
-          `public${filePath}`,
-          {
-            folder: "uploads/silicon-ips",
-          },
-        );
-
-        // Cleanup local file after upload
-        await fs.unlink(`public${filePath}`);
-
         return {
           name: file.name,
-          url: cloudinaryResponse.url,
+          url: filePath,
           type: file.type,
         };
       }),
@@ -124,7 +105,21 @@ export async function DELETE(_: NextRequest, { params }) {
   await connectMongo();
 
   try {
+    const siliconIP = await SiliconIP.findById(id);
+
+    if (!siliconIP) {
+      return NextResponse.json(
+        { success: false, error: "Silicon IP not found" },
+        { status: 404 },
+      );
+    }
+
     await SiliconIP.findByIdAndDelete(id);
+
+    // Delete files
+    siliconIP.files.forEach(async (file) => {
+      await fs.unlink(`public${file.url}`);
+    });
 
     return NextResponse.json(null);
   } catch (error) {

@@ -41,7 +41,7 @@ const BlogDetailsPage = () => {
                       <div className="mb-5 mr-10 flex items-center">
                         <div className="w-full">
                           <span className="mb-1 text-base font-medium text-body-color">
-                            By <span>{blog?.createdBy.name}</span>
+                            By <span>{blog?.authorName}</span>
                           </span>
                         </div>
                       </div>

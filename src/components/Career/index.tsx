@@ -64,15 +64,9 @@ const Career = () => {
             we create a company of high-performance innovators for a meaningful
             impact on the semiconductor IC and product design.
           </p>
-          {/* <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-            We have multiple openings for Analog designers, Layout Engineers,
-            Digital Designers, Silicon-Validation Engineers. <br />
-            Please contact us on{" "}
-            <span className="text-primary">careers@fermionic.design</span>
-          </h4> */}
         </div>
-        <div className="flex">
-          <div className="w-1/2">
+        <div className="flex flex-col md:flex-row">
+          <div className="md:w-1/2">
             <Accordion transition transitionTimeout={200} className="text-sm">
               <AccordionItem
                 header="Senior Manager / Principal Engineer Silicon Validation"
@@ -211,7 +205,7 @@ const Career = () => {
               </AccordionItem>
             </Accordion>
           </div>
-          <div className="w-1/2">
+          <div className="md:w-1/2 hidden md:block">
             <Image
               src="/images/career/we-are-hiring-.jpg"
               alt="career-image"

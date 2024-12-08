@@ -11,20 +11,20 @@ const Footer = () => {
       <footer className="relative z-10 bg-black pt-6 dark:bg-gray-dark lg:pt-8">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4 md:w-1/3 lg:w-4/12 xl:w-6/12">
+            <div className="w-full px-4 md:w-1/3 lg:w-6/12 xl:w-6/12">
               <div className="mb-8 max-w-[360px]">
                 <Link href="/" className="mb-6 inline-block">
                   <Image
                     src="/images/logo/logo-white.png"
                     alt="logo"
-                    className="w-full dark:hidden"
+                    className="dark:hidden"
                     width={100}
                     height={30}
                   />
                   <Image
                     src="/images/logo/logo.png"
                     alt="logo"
-                    className="hidden w-full dark:block"
+                    className="hidden dark:block"
                     width={100}
                     height={30}
                   />
@@ -112,7 +112,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="w-full px-4 sm:w-1/2 md:w-1/3 lg:w-2/12 xl:w-3/12">
+            <div className="w-full px-4 sm:w-1/2 md:w-1/3 lg:w-3/12 xl:w-3/12">
               <div className="mb-6 lg:mb-8">
                 <h2 className="mb-4 text-xl font-semibold text-white dark:text-white">
                   Useful Links
@@ -146,7 +146,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="w-full px-4 sm:w-1/2 md:w-1/3 lg:w-2/12 xl:w-3/12">
+            <div className="w-full px-4 sm:w-1/2 md:w-1/3 lg:w-3/12 xl:w-3/12">
               <div className="mb-6 lg:mb-8">
                 <h2 className="mb-4 text-xl font-semibold text-white dark:text-white">
                   Terms

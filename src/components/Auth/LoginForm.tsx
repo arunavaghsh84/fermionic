@@ -79,7 +79,7 @@ export default function LoginForm() {
   return (
     !isAuthenticated && (
       <form onSubmit={handleLogin}>
-        <div className="mb-8">
+        <div className="mb-6">
           <label
             htmlFor="email"
             className="mb-3 block text-sm text-dark dark:text-white"

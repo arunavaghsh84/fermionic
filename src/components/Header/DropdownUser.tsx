@@ -1,13 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { DecodedToken, decodeToken } from "@/app/lib/auth";
 
 const DropdownUser = () => {
   const router = useRouter();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [userInfo, setUserInfo] = useState<DecodedToken | null>(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem(
+      `${process.env.NEXT_PUBLIC_APP_NAME}-token`,
+    );
+
+    if (token) {
+      const decoded = decodeToken(token);
+
+      if (decoded) {
+        setUserInfo(decoded);
+      }
+    }
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem(`${process.env.NEXT_PUBLIC_APP_NAME}-token`);
@@ -24,7 +40,7 @@ const DropdownUser = () => {
       >
         <span className="text-right">
           <span className="block text-sm font-medium text-white dark:text-white">
-            Thomas Anree
+            {userInfo?.name}
           </span>
         </span>
 

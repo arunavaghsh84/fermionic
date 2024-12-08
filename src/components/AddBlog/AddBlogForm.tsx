@@ -11,6 +11,7 @@ interface FormErrors {
   shortDescription?: string;
   content?: string;
   image?: string;
+  authorName?: string;
 }
 
 const AddBlogForm = ({
@@ -24,6 +25,7 @@ const AddBlogForm = ({
     title: initialData?.title || "",
     shortDescription: initialData?.shortDescription || "",
     content: initialData?.content || "",
+    authorName: initialData?.authorName || "",
   });
 
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -38,6 +40,8 @@ const AddBlogForm = ({
       newErrors.shortDescription = "Short description is required.";
     if (!form.content.trim()) newErrors.content = "Content is required.";
     if (!imageFile && !initialData) newErrors.image = "Image file is required.";
+    if (!form.authorName.trim())
+      newErrors.authorName = "Author name is required.";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -52,10 +56,10 @@ const AddBlogForm = ({
 
     const formData = new FormData();
 
-    formData.append("createdBy", "672bac64efcf9efa94151928");
     formData.append("title", form.title);
     formData.append("shortDescription", form.shortDescription);
     formData.append("content", form.content);
+    formData.append("authorName", form.authorName);
 
     if (imageFile) formData.append("image", imageFile);
 
@@ -165,6 +169,27 @@ const AddBlogForm = ({
             />
             {errors.image && (
               <p className="text-sm text-red-500">{errors.image}</p>
+            )}
+          </div>
+        </div>
+        <div className="w-1/2 px-4">
+          <div className="mb-4">
+            <label
+              htmlFor="title"
+              className="mb-3 block text-sm font-medium text-black dark:text-white"
+            >
+              Author Name
+            </label>
+            <input
+              type="text"
+              name="authorName"
+              value={form.authorName}
+              onChange={(e) => setForm({ ...form, authorName: e.target.value })}
+              placeholder="Enter author name"
+              className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+            />
+            {errors.authorName && (
+              <p className="text-sm text-red-500">{errors.authorName}</p>
             )}
           </div>
         </div>

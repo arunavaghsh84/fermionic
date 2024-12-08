@@ -9,26 +9,28 @@ const AddressBox = () => {
     <div className="relative z-10 rounded-sm bg-white p-8 shadow-three dark:bg-gray-dark">
       <iframe
         id="map_custom"
-        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d235745.68469757136!2d88.3032064!3d22.5968128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1729759394854!5m2!1sen!2sin"
-        width="400"
-        height="300"
+        src="https://www.google.com/maps/d/u/0/embed?mid=149ZLBk-i3c0Gw1-tnrYEAgFKlFFSLCU&ehbc=2E312F&noprof=1"
+        height="240"
         loading="lazy"
+        style={{ border: 0 }}
       ></iframe>
 
-      <h3 className="mb-4 text-xl font-semibold leading-tight text-dark dark:text-white">
+      <h3 className="mb-2 text-lg font-semibold leading-tight text-dark dark:text-white">
         Main Office Address
       </h3>
-      <p className="mb-6 border-b border-body-color border-opacity-25 pb-6 text-sm leading-relaxed text-black dark:border-white dark:border-opacity-25">
-        FermionIC Design Private Limited GVR Vision, 268, 3rd Floor, AECS Layout
-        <br/>- A Block, Marathahalli, Bengaluru, Karnataka 560037,India
+      <p className="mb-3 border-b border-body-color border-opacity-25 pb-3 text-sm leading-relaxed text-black dark:border-white dark:border-opacity-25">
+        FermionIC Design Private Limited GVR Vision, 268, 3rd Floor, AECS <br />
+        Layout - A Block, Marathahalli, Bengaluru, Karnataka 560037,India
       </p>
 
-      <h3 className="mb-4 text-xl font-semibold leading-tight text-dark dark:text-white">
+      <h3 className="mb-2 text-lg font-semibold leading-tight text-dark dark:text-white">
         Sales Office Address
       </h3>
       <p className="text-sm leading-relaxed text-black dark:border-white dark:border-opacity-25">
-        FermionIC Design Private Limited Inspire Workplace, 134-135, Service Rd,<br/>
-        LRDE Layout, Doddanekkundi, <br/>Bangalore, Karnataka 560037,India
+        FermionIC Design Private Limited Inspire Workplace, 134-135, Service Rd,
+        <br />
+        LRDE Layout, Doddanekkundi, <br />
+        Bangalore, Karnataka 560037,India
       </p>
 
       {/* <div>
