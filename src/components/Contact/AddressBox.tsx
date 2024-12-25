@@ -9,7 +9,7 @@ const AddressBox = () => {
     <div className="relative z-10 rounded-sm bg-white p-8 shadow-three dark:bg-gray-dark">
       <iframe
         id="map_custom"
-        src="https://www.google.com/maps/d/u/0/embed?mid=149ZLBk-i3c0Gw1-tnrYEAgFKlFFSLCU&ehbc=2E312F&noprof=1"
+        src={process.env.NEXT_PUBLIC_MAP_ADDRESS_URL}
         height="240"
         loading="lazy"
         style={{ border: 0 }}
